@@ -32,10 +32,7 @@ inline std::ostream& operator<<(std::ostream& outLine, const Fano& outClass){
     }
     std::cout << "Code:" << std::endl;
     for (auto &i : outClass.storedCode){
-        outLine << "'" << std::hex << std::uppercase << (int)i.first << "'" << "[" << (char)i.first << "]";
-        outLine << " = ";
-        outLine << i.second;
-        outLine << std::endl;
+        outLine << (int)i.first << ".'" << i.second << "'" << std::endl;
     }
     return outLine;
 }

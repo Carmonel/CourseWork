@@ -7,6 +7,8 @@
 
 #include "Fano.h"
 
+using std::string;
+
 void err(){
     std::cout << "Wrong arguments" << std::endl;
     std::cout << "Use: algorithmFano.exe [mode] [view] [path]" << std::endl;
@@ -110,7 +112,8 @@ Node* readTree(std::ifstream &source, bool debug){
             }
         }
         thisNode->setValue(value);
-        if (debug) std::cout << "Add: " << thisNode->returnValue() << " = " << thisNode->returnStr() << std::endl;
+        //if (debug) std::cout << "Add: " << thisNode->returnValue() << " = " << thisNode->returnStr() << std::endl;
+        if (debug) std::cout << thisNode->returnValue() << " " << thisNode->returnStr() << std::endl;
         count--;
     }
     if (debug) std::cout << std::endl;
@@ -165,11 +168,14 @@ void decompress(std::ofstream& target, Node* treeHead, std::ifstream& sourceData
 }
 
 // Переопределение пути в вид \\root\\DECOMPILED[file]
-string resultFileName(string fromPath, string& newPath){
-    newPath = fromPath;
-    newPath.erase(newPath.length()-8);
+string resultFileName(string path){
+    path.erase(path.length()-8);
+    int it = path.length();
+    while (path[it] != '/') it--;
+    it++;
+    path.insert(it, "DECOMPILED");
 
-    return fromPath;
+    return path;
 }
 
 void decompressInefficient(std::ifstream& streamFile, std::ofstream& decompiledFile){
@@ -200,13 +206,12 @@ void decompile(const std::string& path, bool debug){
         exit(2);
     }
 
-    string newPath;
-    resultFileName(path, newPath);
+    string newPath(resultFileName(path));
 
     std::ofstream decompiledFile(newPath, std::ios::binary | std::ios::out);
     if (!decompiledFile.fail()) decompiledFile.clear();
     if (decompiledFile.fail()){
-        std::cout << "executeFano.cpp::decompile(const std::string& path)::92::9 | decompiledFile.fail() returns /* UNREACHABLE IMPORT FILE */";
+        std::cout << "executeFano.cpp::decompile(const std::string& path)::213::9 | decompiledFile.fail() returns /* UNREACHABLE IMPORT FILE */";
         exit(2);
     }
 
