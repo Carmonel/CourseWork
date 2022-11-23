@@ -1,3 +1,2 @@
-# kursovaya
+# CourseWork algorithm Fano C++
 
-Осталось правильно считывать int из key файла для декомпиляции
