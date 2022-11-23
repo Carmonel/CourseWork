@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/Administrator/CLionProjects/CourseWork/Fano.cpp
+fstream
+-
+iostream
+-
+Fano.h
+/cygdrive/c/Users/Administrator/CLionProjects/CourseWork/Fano.h
+algorithm
+-
+
+/cygdrive/c/Users/Administrator/CLionProjects/CourseWork/Fano.h
+tree.h
+/cygdrive/c/Users/Administrator/CLionProjects/CourseWork/tree.h
+vector
+-
+
+/cygdrive/c/Users/Administrator/CLionProjects/CourseWork/tree.h
+string
+-
+iostream
+-
+vector
+-
+
