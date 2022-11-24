@@ -200,16 +200,16 @@ void Fano::generateArchived(const string &pathToFile, bool v) {
 
     if (v) std::cout << std::endl << "Scanning and writing... " << std::endl;
 
-    char ch = 100;
-    int posToEndSize = archiveFile.tellp();
-    int size;
-    archiveFile.write(&ch, 1);
+    //char ch = 100;
+    //int posToEndSize = archiveFile.tellp();
+    //int size;
+    //archiveFile.write(&ch, 1);
 
     string stream;
     unsigned long i = 0;
     unsigned long j = 0;
 
-    while(streamFile.read(&ch, 1)){
+    /*while(streamFile.read(&ch, 1)){
         if (stream.length() >= 8){
             if ((j % 50000 == 0) && (j > 0) && (v)){
                 std::cout << "Writed to export file " << std::dec << i / 1000 << "k bytes." << std::endl;
@@ -244,8 +244,9 @@ void Fano::generateArchived(const string &pathToFile, bool v) {
 
     ch = size;
     archiveFile.seekp(posToEndSize);
-    archiveFile.write(&ch, 1);
-    /*while(streamFile.read(&ch, 1)){
+    archiveFile.write(&ch, 1);*/
+    char ch;
+    while(streamFile.read(&ch, 1)){
         if ((i % 1000000 == 0) && (i > 0) && (v)){
             std::cout << "Scanned from imported file " << std::dec << i / 1000000 << "kk bytes." << std::endl;
         }
@@ -283,7 +284,7 @@ void Fano::generateArchived(const string &pathToFile, bool v) {
         archiveFile.write(&outCh, 1);
         break;
     }
-    */
+
     archiveFile.close();
     streamFile.close();
 }

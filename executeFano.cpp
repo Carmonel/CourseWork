@@ -187,7 +187,7 @@ void decompressInefficient(std::ifstream& streamFile, std::ofstream& decompiledF
 
 bool isInefficient(std::ifstream& file){
     char check;
-    file >> check;
+    file.read(&check, 1);
     if (check == 0){
         std::cout << "Attention: this file was compressed inefficient." << std::endl;
         return true;
