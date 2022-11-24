@@ -136,7 +136,7 @@ void writeInt(std::ostream& file, char value, string& str){
 
             break;
         }
-        string temp(str, i, i+8);
+        string temp(str, i, 8);
 
         // Подсчет количестве нулей в начале
         char k = 0;
@@ -200,22 +200,21 @@ void Fano::generateArchived(const string &pathToFile, bool v) {
 
     if (v) std::cout << std::endl << "Scanning and writing... " << std::endl;
 
-    //char ch = 100;
-    //int posToEndSize = archiveFile.tellp();
-    //int size;
-    //archiveFile.write(&ch, 1);
+    char ch = 100;
+    int posToEndSize = archiveFile.tellp();
+    int size;
+    archiveFile.write(&ch, 1);
 
     string stream;
     unsigned long i = 0;
     unsigned long j = 0;
 
-    /*while(streamFile.read(&ch, 1)){
+    while(streamFile.read(&ch, 1)){
         if (stream.length() >= 8){
             if ((j % 50000 == 0) && (j > 0) && (v)){
                 std::cout << "Writed to export file " << std::dec << i / 1000 << "k bytes." << std::endl;
             }
             j++;
-
             string k(stream, 0, 8);
             char outCh = stoi(k, nullptr, 2);
             archiveFile.write(&outCh, 1);
@@ -226,26 +225,34 @@ void Fano::generateArchived(const string &pathToFile, bool v) {
         }
         auto it = storedCode.begin();
         while ((it != storedCode.end()) && (it->first != ch)) ++it;
-
         if (it == storedCode.end()){
             std::cout << "Fano.cpp::generateArchived(const string &pathToFile)::127::19 | Not found relation between [streamFile >> ch] and [storedCode]";
             exit(4);
         }
-
         stream += it->second;
         i++;
     }
-    if (stream.length() > 0){
-        size = stream.size() % 8;
-        while (stream.length() != 8) stream.push_back('0');
-        char outCh = stoi(stream, nullptr, 2);
+    size = stream.length() % 8;
+    while (stream.length() > 0){
+        if ((j % 50000 == 0) && (j > 0) && (v)){
+            std::cout << "Writed to export file " << std::dec << i / 1000 << "k bytes." << std::endl;
+        }
+        if (stream.length() < 8){
+            char outCh = stoi(stream, nullptr, 2);
+            archiveFile.write(&outCh, 1);
+            break;
+        }
+        string k(stream, 0, 8);
+        char outCh = stoi(k, nullptr, 2);
         archiveFile.write(&outCh, 1);
+        stream.erase(0, 8);
+        j++;
     }
 
     ch = size;
     archiveFile.seekp(posToEndSize);
-    archiveFile.write(&ch, 1);*/
-    char ch;
+    archiveFile.write(&ch, 1);
+    /*char ch;
     while(streamFile.read(&ch, 1)){
         if ((i % 1000000 == 0) && (i > 0) && (v)){
             std::cout << "Scanned from imported file " << std::dec << i / 1000000 << "kk bytes." << std::endl;
@@ -283,7 +290,7 @@ void Fano::generateArchived(const string &pathToFile, bool v) {
         char outCh = stoi(stream, nullptr, 2);
         archiveFile.write(&outCh, 1);
         break;
-    }
+    }*/
 
     archiveFile.close();
     streamFile.close();

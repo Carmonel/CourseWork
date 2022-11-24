@@ -113,7 +113,7 @@ Node* readTree(std::ifstream &source, bool debug){
         }
         thisNode->setValue(value);
         //if (debug) std::cout << "Add: " << thisNode->returnValue() << " = " << thisNode->returnStr() << std::endl;
-        if (debug) std::cout << thisNode->returnValue() << " " << thisNode->returnStr() << std::endl;
+        if (debug) std::cout << thisNode->returnValue() << ".'" << thisNode->returnStr() << "'" << std::endl;
         count--;
     }
     if (debug) std::cout << std::endl;
