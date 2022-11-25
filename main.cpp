@@ -1,30 +1,26 @@
-#include "executeFano.h"
+#include "ArciverExecutor.h"
 #include <iostream>
 #include <string>
 
+#include "Exception.h"
+#include "SyntaxChecker.h"
+
+#include "ConfigMapper.h"
+
+#include "Log.h"
+
+using namespace std;
+
 int main(int argc, char *argv[]) {
-    if ((argc != 3) && (argc != 4)){
-        err();
+    try {
+        Config config = ConfigMapper::readConfig(argc, argv);
+        Log::setLogLevel(config.verbose ? LogLevel::Verbose : LogLevel::Error);
+        ArchiverExecutor::execute(config);
+    } catch (Exception &e) {
+        cerr << e.what() << endl;
+        cerr << SyntaxChecker::printErr() << endl;
         return -1;
     }
 
-    std::string mode(argv[1]);
-    std::string view(argv[argc - 2]);
-    if (mode == "-c"){
-        bool v = false;
-        if (view == "-v") v = true;
-        startAlgorithm(argv[argc-1], v);
-        return 0;
-    }
-    if (mode == "-d"){
-        bool v = false;
-        if (view == "-v") v = true;
-        decompile(argv[argc-1], v);
-        return 0;
-    }
-
-    err();
-    std::cout << std::endl << "Use '-d' or '-c'!" << std::endl;
-    std::cout << "Maybe not english letter?";
-    return -1;
+    return 0;
 }
