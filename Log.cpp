@@ -58,4 +58,15 @@ void Log::v(const char *msg) {
     }
 }
 
+void Log::d(const std::string msg) {
+    if (Debug <= Log::logLevel) {
+        cout << msg << endl;
+    }
+}
+
+void Log::d(const char *msg) {
+    if (Debug <= Log::logLevel) {
+        cout << msg << endl;
+    }
+}
 

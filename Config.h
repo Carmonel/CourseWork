@@ -7,22 +7,24 @@
 
 #include <string>
 
+#include "Log.h"
+
 struct Config {
     enum Mode{
         COMPRESS,DECOMPRESS,UNSPECIFIED
     };
 
     Mode mode;
-    bool verbose;
+    LogLevel logLevel;
     std::string path;
 
     inline Config(){
         mode = UNSPECIFIED;
-        verbose = false;
+        logLevel = Error;
         path = "";
     }
-    inline Config(Mode &mode, bool verbose, std::string &path)
-        : mode(mode), verbose(verbose), path(path){}
+    inline Config(Mode &mode, LogLevel logLevel, std::string &path)
+        : mode(mode), logLevel(logLevel), path(path){}
 };
 
 #endif //COURSEWORK_CONFIG_H

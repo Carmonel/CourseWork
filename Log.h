@@ -8,10 +8,10 @@
 #include <string>
 
 enum LogLevel {
-    Error = 0, Warning = 1, Info = 2, Verbose = 3
+    Error = 0, Warning = 1, Info = 2, Verbose = 3, Debug = 4
 };
 
-constexpr static const LogLevel priority[] = {Error, Warning, Info, Verbose};
+constexpr static const LogLevel priority[] = {Error, Warning, Info, Verbose, Debug};
 
 class Log {
 private:
@@ -30,6 +30,9 @@ public:
 
     static void v(const std::string msg);
     static void v(const char* msg);
+
+    static void d(const std::string msg);
+    static void d(const char* msg);
 };
 
 #endif //COURSEWORK_LOG_H

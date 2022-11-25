@@ -17,9 +17,11 @@ Config ConfigMapper::readConfig(int argc, char **argv) {
             config.mode = Config::COMPRESS;
         } else if (arg == "-d"){
             config.mode = Config::DECOMPRESS;
-        } else if (arg == "-v"){
-            config.verbose = true;
-        }else {
+        } else if (arg == "-v") {
+            config.logLevel = Verbose;
+        } else if (arg == "-dbg"){
+            config.logLevel = Debug;
+        } else {
             if (config.path.empty()) {
                 config.path = arg;
             } else {
