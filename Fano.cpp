@@ -18,6 +18,7 @@ Fano::Fano(std::istream &input) {
     // Ввод символов
     int ch;
     while (input.read((char*)&ch, 1)){
+        Log::d("char " + to_string(ch));
         // Если такой символ уже есть
         iterator = findVectorIt(&storedUsages, ch);
         if (iterator == storedUsages.end()) storedUsages.emplace_back(ch, 1);
