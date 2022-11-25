@@ -24,28 +24,28 @@ public:
     ~ArgCountException() noexcept override = default;
 };
 
-class WrongKeyException : Exception {
+class WrongKeyException : public Exception {
 public:
     explicit WrongKeyException(std::string &&msg) noexcept;
     explicit WrongKeyException(const std::string &whatStr) noexcept;
     ~WrongKeyException() noexcept override = default;
 };
 
-class WrongArchiverMode : Exception {
+class WrongArchiverMode : public Exception {
 public:
     explicit WrongArchiverMode(std::string &&msg) noexcept;
     explicit WrongArchiverMode(const std::string &whatStr) noexcept;
     ~WrongArchiverMode() noexcept override = default;
 };
 
-class FileException : Exception {
+class FileException : public Exception {
 public:
     explicit FileException(std::string &&msg) noexcept;
     explicit FileException(const std::string &whatStr) noexcept;
     ~FileException() noexcept override = default;
 };
 
-class FileOpenError : FileException {
+class FileOpenError : public FileException {
 public:
     explicit FileOpenError(std::string &&msg) noexcept;
     explicit FileOpenError(const std::string &whatStr) noexcept;
