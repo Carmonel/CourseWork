@@ -2,6 +2,7 @@
 #include "Log.h"
 
 #include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -24,7 +25,8 @@ Node::Node(const string& str){
 }
 
 // Очищение строки от лишних нулей в начале
-string renameStr(string str){
+string Node::returnStrWithoutNull(){
+    auto str = bits;
     while (str[0] == '0'){
         str.erase(str.begin());
     }
@@ -87,9 +89,9 @@ void print(Node* node, int u){
     else
     {
         print(node->returnLeftNode(), ++u);//С помощью рекурсивного посещаем левое поддерево
-        node->setString(node->returnStr()); // Если есть, убираем лишние нули в начале
+        node->setString(node->returnStrWithoutNull()); // Если есть, убираем лишние нули в начале
         if (node->returnValue() != 0){
-            cout << "'" << node->returnValue() << "' = "<< node->returnStr() << endl;
+            Log::v("'" + to_string(node->returnValue()) + "' = " + node->returnStr());
             //cout << "'" << node->returnValue() << "' = "<< renameStr(node->returnStr()) << endl;
         }
         u--;
@@ -97,14 +99,14 @@ void print(Node* node, int u){
     print(node->returnRightNode(), ++u); //С помощью рекурсии посещаем правое поддерево
 }
 
-void returnValues(Node* node, int u, vector< pair<char, string> >* code){
+void returnValues(Node* node, int u, vector< pair<unsigned char, string> > &code){
     if (node == nullptr) return; //Если дерево пустое, то отображать нечего, выходим
     else
     {
         returnValues(node->returnLeftNode(), ++u, code);//С помощью рекурсивного посещаем левое поддерево
-        node->setString(node->returnStr()); // Если есть, убираем лишние нули в начале
+        node->setString(node->returnStrWithoutNull()); // Если есть, убираем лишние нули в начале
         if (node->returnValue() != 0){
-            code->emplace_back(node->returnValue(), node->returnStr());
+            code.emplace_back(node->returnValue(), node->returnStr());
         }
         u--;
     }
@@ -119,7 +121,7 @@ void returnValues(Node* node, int u, vector< pair<char, string> >* code){
 // Для перехода на следующий часть в конце алгоритма вызывается эта же функция, но для левого подмассива вызывается прошлый
 // указатель на начало массива-родителя, а для правого вызывается указатель на место разрыва массива-родителя.
 // Для каждого случая так же вызывается размер массива.
-void makeTree(const int* array, int arraySize, Node* node){
+void makeTree(const size_t* array, size_t arraySize, Node* node){
     // [Конец рекурсии]
     // Создание листьев, если у части массива остался 1 элемент
     if (arraySize == 1){
@@ -171,7 +173,9 @@ void makeTree(const int* array, int arraySize, Node* node){
     stringstream ss;
     for (int j = 0; j < arraySize; j++){
         ss << array[j] << " ";
-        if (j == index - 1) cout << "| ";
+        if (j == index - 1) {
+            ss << "| ";
+        }
     }
     Log::v(ss.str());
 

@@ -153,8 +153,6 @@ void Archive::compress(std::ofstream &output) {
     Fano main(input);
     Log::v((stringstream() << main).str());
 
-    Log::v("Generating keys...");
-
     if (!main.isEfficiency()){
         Log::i("Attention: this file compressed inefficient.");
         main.generateInefficient(input, output);
@@ -162,12 +160,15 @@ void Archive::compress(std::ofstream &output) {
         return;
     }
 
+    Log::v("Generating keys...");
     // Генератор keys
     main.writeKeys(output);
 
     Log::v("Generating data stream...");
 
     // Создание archive
+    input.clear();
+    input.seekg(0);
     main.generateArchived(input, output);
     Log::v("File successfully archived!");
 }

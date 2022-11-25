@@ -1,6 +1,6 @@
 CMakeFiles/CourseWork.dir/Log.cpp.obj: \
- C:\Users\NHTHS\Desktop\dfgd\CourseWork\Log.cpp \
- C:\Users\NHTHS\Desktop\dfgd\CourseWork\Log.h \
+ C:\Users\NHTHS\Desktop\CourseWork\Log.cpp \
+ C:\Users\NHTHS\Desktop\CourseWork\Log.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/string \
  C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \

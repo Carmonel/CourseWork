@@ -1,6 +1,6 @@
 CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj: \
- C:\Users\NHTHS\Desktop\dfgd\CourseWork\SyntaxChecker.cpp \
- C:\Users\NHTHS\Desktop\dfgd\CourseWork\SyntaxChecker.h \
+ C:\Users\NHTHS\Desktop\CourseWork\SyntaxChecker.cpp \
+ C:\Users\NHTHS\Desktop\CourseWork\SyntaxChecker.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/string \
  C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
@@ -120,4 +120,4 @@ CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cerrno \
  C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/charconv.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_string.tcc \
- C:\Users\NHTHS\Desktop\dfgd\CourseWork\Exception.h
+ C:\Users\NHTHS\Desktop\CourseWork\Exception.h

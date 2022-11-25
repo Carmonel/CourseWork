@@ -1,36 +1,31 @@
 #pragma once
 
 #include <string>
-#include <iostream>
 #include <vector>
-
-using std::string;
-using std::pair;
-using std::vector;
 
 class Node{
 private:
     int value;
-    string bits;
+    std::string bits;
     Node* left;
     Node* right;
 public:
     Node();
     int returnValue() const;
-    explicit Node(const string& str);
+    explicit Node(const std::string& str);
     void setValue(int value);
-    Node* createLeft(const string& str);
+    Node* createLeft(const std::string& str);
     Node* createLeft();
-    Node* createRight(const string& str);
+    Node* createRight(const std::string& str);
     Node* createRight();
     Node* returnLeftNode();
     Node* returnRightNode();
-    string returnStr();
-    void setString(const string& str);
+    std::string returnStr();
+    std::string returnStrWithoutNull();
+    void setString(const std::string& str);
     ~Node();
 };
 
-string renameStr(string str);
 void print(Node* node, int u);
-void returnValues(Node* node, int u, vector< pair<char, string> >* code);
-void makeTree(const int* array, int size, Node* node);
+void returnValues(Node* node, int u, std::vector< std::pair<unsigned char, std::string> > &code);
+void makeTree(const size_t* array, size_t size, Node* node);
