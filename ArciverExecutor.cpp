@@ -15,7 +15,7 @@ using namespace std;
 void checkFile(ofstream &fs, const char* msg){
     if (fs.fail() || !fs.is_open()){
         fs.close();
-        throw FileOpenError(std::move(msg));
+        throw FileOpenError(msg);
     }
 }
 
