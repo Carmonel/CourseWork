@@ -1,7 +1,9 @@
 #include "tree.h"
+#include "Log.h"
 
-using std::cout;
-using std::endl;
+#include <sstream>
+
+using namespace std;
 
 Node::Node(){
     right = nullptr;
@@ -117,13 +119,11 @@ void returnValues(Node* node, int u, vector< pair<char, string> >* code){
 // Для перехода на следующий часть в конце алгоритма вызывается эта же функция, но для левого подмассива вызывается прошлый
 // указатель на начало массива-родителя, а для правого вызывается указатель на место разрыва массива-родителя.
 // Для каждого случая так же вызывается размер массива.
-void makeTree(const int* array, int arraySize, Node* node, bool v){
-    if (v) cout << endl;
-
+void makeTree(const int* array, int arraySize, Node* node){
     // [Конец рекурсии]
     // Создание листьев, если у части массива остался 1 элемент
     if (arraySize == 1){
-        if (v) cout << "[" << array[0] << "] " << node->returnStr() << endl; // Вывод для наглядности
+        Log::v("[" + std::to_string(array[0]) + "] " + node->returnStr()); // Вывод для наглядности
         node->setValue(array[0]); // Ввод получившегося символа в лист дерева
         return;
     }
@@ -168,18 +168,18 @@ void makeTree(const int* array, int arraySize, Node* node, bool v){
     delete[] differenceHolder;
 
     // Показательный вывод разделения
-    if (v){
-        for (int j = 0; j < arraySize; j++){
-            cout << array[j] << " ";
-            if (j == index - 1) cout << "| ";
-        }
+    stringstream ss;
+    for (int j = 0; j < arraySize; j++){
+        ss << array[j] << " ";
+        if (j == index - 1) cout << "| ";
     }
+    Log::v(ss.str());
 
     // [Рекурсия]
     // Для построения дерева с весами '0' или '1', при прохождении влево добавляется '0', при прохождении направо '1'
     // Для левого массива, копирование битов с прошлого нода.
     // Для правого массива, копирование битов с прошлого нода.
     // В качестве аргументов в createLeft(...) входит returnStr() для записывания '0' или '1' к прошлому значению битов.
-    makeTree(array, index, node->createLeft( node->returnStr() ), v);
-    makeTree(array + index, arraySize - index, node->createRight( node->returnStr() ), v);
+    makeTree(array, index, node->createLeft( node->returnStr() ));
+    makeTree(array + index, arraySize - index, node->createRight( node->returnStr() ));
 }

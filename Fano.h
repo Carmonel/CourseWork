@@ -4,17 +4,19 @@
 #include "tree.h"
 #include <vector>
 
+#include <iostream>
+
 class Fano {
 private:
     vector< pair<int, int> > storedUsages;
     vector< pair<char, string> > storedCode;
 public:
-    Fano(const string& pathToFile, bool v);
+    Fano(std::istream &input);
 
     friend std::ostream& operator<<(std::ostream& outLine, const Fano& outClass);
-    void generateKeyFile(const string& path);
-    void generateInefficient(const string& path);
-    void generateArchived(const string &pathToFile, bool v);
+    void writeKeys(std::ostream &out);
+    void generateInefficient(std::istream &input, std::ostream &out);
+    void generateArchived(std::istream &input, std::ostream &out);
     bool isEfficiency();
 
     ~Fano();
