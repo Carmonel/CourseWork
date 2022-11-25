@@ -4,12 +4,10 @@
 
 #include "Archive.h"
 #include "Log.h"
-#include "Exception.h"
 #include "tree.h"
 #include "Fano.h"
 
 #include <sstream>
-#include <fstream>
 
 using namespace std;
 
@@ -126,17 +124,6 @@ void writeDecompressed(std::ofstream& target, Node* treeHead, std::ifstream& sou
     }
 }
 
-// Переопределение пути в вид \\root\\DECOMPILED[file]
-string resultFileName(string path){
-    path.erase(path.length()-8);
-    int it = path.length();
-    while (path[it] != '/') it--;
-    it++;
-    path.insert(it, "DECOMPILED");
-
-    return path;
-}
-
 void decompressInefficient(std::ifstream& streamFile, std::ofstream& decompiledFile){
     Log::v("Copying data from stream file to decompiled file...");
     Log::v("Converting stream data to export file...");
@@ -155,78 +142,51 @@ bool isInefficient(std::ifstream& file){
 }
 
 
-Archive::Archive(const std::string &path) {
-    this->path = path;
+Archive::Archive(std::ifstream &input) : input(input) {
 }
 
-void Archive::compress(const std::string &outPath) {
+void Archive::compress(std::ofstream &output) {
     std::ios_base::sync_with_stdio(false);
-
-    Log::v("Working with '" + path + "'");
 
     // Считывание потока данных с файла
     // Заполнение storedUsages, подсчет количества использований
-    Fano main(path);
-
+    Fano main(input);
     Log::v((stringstream() << main).str());
 
     Log::v("Generating keys...");
 
     if (!main.isEfficiency()){
-        Log::v("Attention: this file compressed inefficient.");
-        main.generateInefficient(path);
-
-        Log::v(path + ".archive  -  created.");
+        Log::i("Attention: this file compressed inefficient.");
+        main.generateInefficient(input, output);
         Log::v("File successfully archived!");
         return;
     }
 
     // Генератор keys
-    main.generateKeyFile(path + ".archive");
+    main.writeKeys(output);
 
     Log::v("Generating data stream...");
 
     // Создание archive
-    main.generateArchived(path);
-
-    Log::v(path + ".archive  -  created.");
+    main.generateArchived(input, output);
     Log::v("File successfully archived!");
 }
 
-void Archive::decompress(const std::string &outPath) {
+void Archive::decompress(std::ofstream &output) {
     std::ios_base::sync_with_stdio(false);
 
-    Log::v("Working with '" + path + "'");
-
-    std::ifstream streamFile(path, std::ios::binary | std::ios::in);
-    if (streamFile.fail()){
-        throw FileOpenError("Opening file failed");
-    }
-
-    string newPath(resultFileName(path));
-
-    std::ofstream decompiledFile(newPath, std::ios::binary | std::ios::out);
-
-    if (!decompiledFile.fail()) decompiledFile.clear();
-    if (decompiledFile.fail()){
-        throw FileOpenError("Opening file failed");
-    }
-
-    if (isInefficient(streamFile)){
-        decompressInefficient(streamFile, decompiledFile);
-        Log::v("" + newPath + " - created!");
+    if (isInefficient(input)){
+        decompressInefficient(input, output);
         Log::v("File successfully unpacked!");
         return;
     }
 
     Log::v("Generating tree by stream data...");
-    Node* treeHead = readTree(streamFile);
+    Node* treeHead = readTree(input);
 
     Log::v("Converting stream data to export file...");
-    Log::v("" + newPath + " - created!");
 
-    writeDecompressed(decompiledFile, treeHead, streamFile);
-    decompiledFile.close();
+    writeDecompressed(output, treeHead, input);
 
     Log::v("File successfully unpacked!");
 }

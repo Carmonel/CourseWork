@@ -6,16 +6,18 @@
 #define COURSEWORK_ARCHIVE_H
 
 #include <string>
+#include <iostream>
+#include <fstream>
 
 class Archive {
 private:
-    std::string path;
+    std::ifstream &input;
 public:
-    explicit Archive(const std::string &path);
+    explicit Archive(std::ifstream &input);
     ~Archive() = default;
 
-    void compress(const std::string &outPath);
-    void decompress(const std::string &outPath);
+    void compress(std::ofstream &output);
+    void decompress(std::ofstream &output);
 };
 
 #endif //COURSEWORK_ARCHIVE_H

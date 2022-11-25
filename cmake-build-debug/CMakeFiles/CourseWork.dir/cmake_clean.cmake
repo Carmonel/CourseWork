@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/CourseWork.dir/Log.cpp.obj.d"
   "CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj"
   "CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj.d"
+  "CMakeFiles/CourseWork.dir/Utils.cpp.obj"
+  "CMakeFiles/CourseWork.dir/Utils.cpp.obj.d"
   "CMakeFiles/CourseWork.dir/main.cpp.obj"
   "CMakeFiles/CourseWork.dir/main.cpp.obj.d"
   "CMakeFiles/CourseWork.dir/tree.cpp.obj"

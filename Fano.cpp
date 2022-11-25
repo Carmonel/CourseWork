@@ -12,19 +12,12 @@ bool compare(pair<char, int> a, pair<char, int> b){
     return a.second > b.second;
 }
 
-Fano::Fano(const string& pathToFile) {
+Fano::Fano(std::istream &input) {
     vector< pair<int, int> >::iterator iterator;
-
-    std::ifstream file(pathToFile, std::ios::binary | std::ios::in);
-
-    if (file.fail()){
-        file.close();
-        throw FileOpenError("Fano.cpp::Fano(const string& pathToFile, char viewGeneration)::20::9 | Fano(const string& pathToFile, char viewGeneration) returns /* UNREACHABLE IMPORT FILE */");
-    }
 
     // Ввод символов
     int ch;
-    while (file.read((char*)&ch, 1)){
+    while (input.read((char*)&ch, 1)){
         // Если такой символ уже есть
         iterator = findVectorIt(&storedUsages, ch);
         if (iterator == storedUsages.end()) storedUsages.emplace_back(ch, 1);
@@ -51,7 +44,6 @@ Fano::Fano(const string& pathToFile) {
         ++itCode;
     }
 
-
     // Исправление пропуска
     itCode = storedCode.begin();
     while (itCode != storedCode.end()){
@@ -64,8 +56,6 @@ Fano::Fano(const string& pathToFile) {
     }
 
     delete[] temporaryFreqArray;
-
-    file.close();
 }
 
 Fano::~Fano() {
@@ -93,24 +83,10 @@ vector< pair<int, int> >::iterator findVectorIt(vector<pair<int, int>>* vec, int
     return iterator;
 }
 
-void Fano::generateInefficient(const string& path){
-    std::ifstream streamFile;
-    streamFile.open(path, std::ios::binary);
-    if (streamFile.fail()){
-        streamFile.close();
-        throw FileOpenError("Fano.cpp::93::9 -- generateInefficient() returns /* UNREACHABLE IMPORT FILE */");
-    }
-
-    std::ofstream archiveFile;
-    archiveFile.open(path + ".archive", std::ios::binary);
-    if (archiveFile.fail()){
-        archiveFile.close();
-        throw FileOpenError("Fano.cpp::93::9 -- generateInefficient() returns /* UNREACHABLE EXPORT FILE */");
-    }
-
+void Fano::generateInefficient(std::istream &input, std::ostream &out){
     char ch = 0;
-    archiveFile.write(&ch, 1);
-    while (streamFile.read(&ch, 1)) archiveFile.write(&ch, 1);
+    out.write(&ch, 1);
+    while (input.read(&ch, 1)) out.write(&ch, 1);
 }
 
 void writeInt(std::ostream& file, char value, string& str){
@@ -158,18 +134,11 @@ void writeInt(std::ostream& file, char value, string& str){
     }
 }
 
-void Fano::generateKeyFile(const string &path) {
-    std::ofstream keyFile;
-    keyFile.open(path, std::ios::binary);
-
-    if (!keyFile.fail()){
-        keyFile.clear();
-    }
-
+void Fano::writeKeys(std::ostream &out) {
     char efficiency = 1;
-    keyFile.write(&efficiency, 1);
+    out.write(&efficiency, 1);
     char size = storedCode.size();
-    keyFile.write(&size, 1);
+    out.write(&size, 1);
 
     // Данные записываются: [символ][кол-во байт которые надо считать] ||[количество нулей в начале][HEX значения]||
     // Если значение начинается с 0, то количество нулей до первой единицы записывается во вторые []
@@ -184,39 +153,29 @@ void Fano::generateKeyFile(const string &path) {
 
     for (int i = 0; i < storedCode.size(); i++){
 
-        writeInt(keyFile, storedCode.at(i).first, storedCode.at(i).second);
+        writeInt(out, storedCode.at(i).first, storedCode.at(i).second);
 
         std::cout << std::dec << i << " ";
         if ((i % 100 == 0) && (i > 100)){
             std::cout << std::endl;
         }
     }
-
-    keyFile.close();
 }
 
-void Fano::generateArchived(const string &pathToFile) {
-    std::fstream archiveFile(pathToFile + ".archive", std::ios_base::in | std::ios_base::out | std::ios_base::ate);
-
-    std::ifstream streamFile(pathToFile, std::ios::binary | std::ios::in);
-    if (streamFile.fail()){
-        streamFile.close();
-        throw FileOpenError("Fano.cpp::132::9 -- generateArchived() returns /* UNREACHABLE IMPORT FILE */");
-        exit(3);
-    }
+void Fano::generateArchived(std::istream &input, std::ostream &out) {
 
     Log::v("Scanning and writing... ");
 
     char ch = 100;
-    int posToEndSize = archiveFile.tellp();
+    int posToEndSize = out.tellp();
     int size;
-    archiveFile.write(&ch, 1);
+    out.write(&ch, 1);
 
     string stream;
     unsigned long i = 0;
     unsigned long j = 0;
 
-    while(streamFile.read(&ch, 1)){
+    while(input.read(&ch, 1)){
         if (stream.length() >= 8){
             if ((j % 50000 == 0) && (j > 0)){
                 Log::v("Writed to export file " + std::to_string(int(i / 1000)) + "k bytes.");
@@ -224,7 +183,7 @@ void Fano::generateArchived(const string &pathToFile) {
             j++;
             string k(stream, 0, 8);
             char outCh = stoi(k, nullptr, 2);
-            archiveFile.write(&outCh, 1);
+            out.write(&outCh, 1);
             stream.erase(0, 8);
         }
         if ((i % 1000000 == 0) && (i > 0)){
@@ -234,7 +193,6 @@ void Fano::generateArchived(const string &pathToFile) {
         while ((it != storedCode.end()) && (it->first != ch)) ++it;
         if (it == storedCode.end()){
             throw Exception("Not found relation between [streamFile >> ch] and [storedCode]");
-            exit(4);
         }
         stream += it->second;
         i++;
@@ -246,19 +204,19 @@ void Fano::generateArchived(const string &pathToFile) {
         }
         if (stream.length() < 8){
             char outCh = stoi(stream, nullptr, 2);
-            archiveFile.write(&outCh, 1);
+            out.write(&outCh, 1);
             break;
         }
         string k(stream, 0, 8);
         char outCh = stoi(k, nullptr, 2);
-        archiveFile.write(&outCh, 1);
+        out.write(&outCh, 1);
         stream.erase(0, 8);
         j++;
     }
 
     ch = size;
-    archiveFile.seekp(posToEndSize);
-    archiveFile.write(&ch, 1);
+    out.seekp(posToEndSize);
+    out.write(&ch, 1);
     /*char ch;
     while(streamFile.read(&ch, 1)){
         if ((i % 1000000 == 0) && (i > 0) && (v)){
@@ -298,7 +256,4 @@ void Fano::generateArchived(const string &pathToFile) {
         archiveFile.write(&outCh, 1);
         break;
     }*/
-
-    archiveFile.close();
-    streamFile.close();
 }

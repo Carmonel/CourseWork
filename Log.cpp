@@ -24,37 +24,37 @@ void Log::e(const char *msg) {
 
 void Log::w(const std::string msg) {
     if (Warning <= Log::logLevel) {
-        cerr << msg << endl;
+        cout << msg << endl;
     }
 }
 
 void Log::w(const char *msg) {
     if (Warning <= Log::logLevel) {
-        cerr << msg << endl;
+        cout << msg << endl;
     }
 }
 
 void Log::i(const std::string msg) {
     if (Info <= Log::logLevel) {
-        cerr << msg << endl;
+        cout << msg << endl;
     }
 }
 
 void Log::i(const char *msg) {
     if (Info <= Log::logLevel) {
-        cerr << msg << endl;
+        cout << msg << endl;
     }
 }
 
 void Log::v(const std::string msg) {
     if (Verbose <= Log::logLevel) {
-        cerr << msg << endl;
+        cout << msg << endl;
     }
 }
 
 void Log::v(const char *msg) {
     if (Verbose <= Log::logLevel) {
-        cerr << msg << endl;
+        cout << msg << endl;
     }
 }
 
