@@ -152,77 +152,29 @@ Archive.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Archive.cpp.s
 .PHONY : Archive.cpp.s
 
-ArciverExecutor.obj: ArciverExecutor.cpp.obj
-.PHONY : ArciverExecutor.obj
+ArchiverExecutor.obj: ArchiverExecutor.cpp.obj
+.PHONY : ArchiverExecutor.obj
 
 # target to build an object file
-ArciverExecutor.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/ArciverExecutor.cpp.obj
-.PHONY : ArciverExecutor.cpp.obj
+ArchiverExecutor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/ArchiverExecutor.cpp.obj
+.PHONY : ArchiverExecutor.cpp.obj
 
-ArciverExecutor.i: ArciverExecutor.cpp.i
-.PHONY : ArciverExecutor.i
-
-# target to preprocess a source file
-ArciverExecutor.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/ArciverExecutor.cpp.i
-.PHONY : ArciverExecutor.cpp.i
-
-ArciverExecutor.s: ArciverExecutor.cpp.s
-.PHONY : ArciverExecutor.s
-
-# target to generate assembly for a file
-ArciverExecutor.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/ArciverExecutor.cpp.s
-.PHONY : ArciverExecutor.cpp.s
-
-ConfigMapper.obj: ConfigMapper.cpp.obj
-.PHONY : ConfigMapper.obj
-
-# target to build an object file
-ConfigMapper.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/ConfigMapper.cpp.obj
-.PHONY : ConfigMapper.cpp.obj
-
-ConfigMapper.i: ConfigMapper.cpp.i
-.PHONY : ConfigMapper.i
+ArchiverExecutor.i: ArchiverExecutor.cpp.i
+.PHONY : ArchiverExecutor.i
 
 # target to preprocess a source file
-ConfigMapper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/ConfigMapper.cpp.i
-.PHONY : ConfigMapper.cpp.i
+ArchiverExecutor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/ArchiverExecutor.cpp.i
+.PHONY : ArchiverExecutor.cpp.i
 
-ConfigMapper.s: ConfigMapper.cpp.s
-.PHONY : ConfigMapper.s
-
-# target to generate assembly for a file
-ConfigMapper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/ConfigMapper.cpp.s
-.PHONY : ConfigMapper.cpp.s
-
-Exception.obj: Exception.cpp.obj
-.PHONY : Exception.obj
-
-# target to build an object file
-Exception.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Exception.cpp.obj
-.PHONY : Exception.cpp.obj
-
-Exception.i: Exception.cpp.i
-.PHONY : Exception.i
-
-# target to preprocess a source file
-Exception.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Exception.cpp.i
-.PHONY : Exception.cpp.i
-
-Exception.s: Exception.cpp.s
-.PHONY : Exception.s
+ArchiverExecutor.s: ArchiverExecutor.cpp.s
+.PHONY : ArchiverExecutor.s
 
 # target to generate assembly for a file
-Exception.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Exception.cpp.s
-.PHONY : Exception.cpp.s
+ArchiverExecutor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/ArchiverExecutor.cpp.s
+.PHONY : ArchiverExecutor.cpp.s
 
 Fano.obj: Fano.cpp.obj
 .PHONY : Fano.obj
@@ -247,54 +199,6 @@ Fano.s: Fano.cpp.s
 Fano.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Fano.cpp.s
 .PHONY : Fano.cpp.s
-
-Log.obj: Log.cpp.obj
-.PHONY : Log.obj
-
-# target to build an object file
-Log.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Log.cpp.obj
-.PHONY : Log.cpp.obj
-
-Log.i: Log.cpp.i
-.PHONY : Log.i
-
-# target to preprocess a source file
-Log.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Log.cpp.i
-.PHONY : Log.cpp.i
-
-Log.s: Log.cpp.s
-.PHONY : Log.s
-
-# target to generate assembly for a file
-Log.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Log.cpp.s
-.PHONY : Log.cpp.s
-
-Utils.obj: Utils.cpp.obj
-.PHONY : Utils.obj
-
-# target to build an object file
-Utils.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Utils.cpp.obj
-.PHONY : Utils.cpp.obj
-
-Utils.i: Utils.cpp.i
-.PHONY : Utils.i
-
-# target to preprocess a source file
-Utils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Utils.cpp.i
-.PHONY : Utils.cpp.i
-
-Utils.s: Utils.cpp.s
-.PHONY : Utils.s
-
-# target to generate assembly for a file
-Utils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Utils.cpp.s
-.PHONY : Utils.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -344,6 +248,102 @@ tree.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/tree.cpp.s
 .PHONY : tree.cpp.s
 
+utils/ConfigMapper.obj: utils/ConfigMapper.cpp.obj
+.PHONY : utils/ConfigMapper.obj
+
+# target to build an object file
+utils/ConfigMapper.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/utils/ConfigMapper.cpp.obj
+.PHONY : utils/ConfigMapper.cpp.obj
+
+utils/ConfigMapper.i: utils/ConfigMapper.cpp.i
+.PHONY : utils/ConfigMapper.i
+
+# target to preprocess a source file
+utils/ConfigMapper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/utils/ConfigMapper.cpp.i
+.PHONY : utils/ConfigMapper.cpp.i
+
+utils/ConfigMapper.s: utils/ConfigMapper.cpp.s
+.PHONY : utils/ConfigMapper.s
+
+# target to generate assembly for a file
+utils/ConfigMapper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/utils/ConfigMapper.cpp.s
+.PHONY : utils/ConfigMapper.cpp.s
+
+utils/Exception.obj: utils/Exception.cpp.obj
+.PHONY : utils/Exception.obj
+
+# target to build an object file
+utils/Exception.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/utils/Exception.cpp.obj
+.PHONY : utils/Exception.cpp.obj
+
+utils/Exception.i: utils/Exception.cpp.i
+.PHONY : utils/Exception.i
+
+# target to preprocess a source file
+utils/Exception.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/utils/Exception.cpp.i
+.PHONY : utils/Exception.cpp.i
+
+utils/Exception.s: utils/Exception.cpp.s
+.PHONY : utils/Exception.s
+
+# target to generate assembly for a file
+utils/Exception.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/utils/Exception.cpp.s
+.PHONY : utils/Exception.cpp.s
+
+utils/Log.obj: utils/Log.cpp.obj
+.PHONY : utils/Log.obj
+
+# target to build an object file
+utils/Log.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/utils/Log.cpp.obj
+.PHONY : utils/Log.cpp.obj
+
+utils/Log.i: utils/Log.cpp.i
+.PHONY : utils/Log.i
+
+# target to preprocess a source file
+utils/Log.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/utils/Log.cpp.i
+.PHONY : utils/Log.cpp.i
+
+utils/Log.s: utils/Log.cpp.s
+.PHONY : utils/Log.s
+
+# target to generate assembly for a file
+utils/Log.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/utils/Log.cpp.s
+.PHONY : utils/Log.cpp.s
+
+utils/Utils.obj: utils/Utils.cpp.obj
+.PHONY : utils/Utils.obj
+
+# target to build an object file
+utils/Utils.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/utils/Utils.cpp.obj
+.PHONY : utils/Utils.cpp.obj
+
+utils/Utils.i: utils/Utils.cpp.i
+.PHONY : utils/Utils.i
+
+# target to preprocess a source file
+utils/Utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/utils/Utils.cpp.i
+.PHONY : utils/Utils.cpp.i
+
+utils/Utils.s: utils/Utils.cpp.s
+.PHONY : utils/Utils.s
+
+# target to generate assembly for a file
+utils/Utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/utils/Utils.cpp.s
+.PHONY : utils/Utils.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -356,30 +356,30 @@ help:
 	@echo ... Archive.obj
 	@echo ... Archive.i
 	@echo ... Archive.s
-	@echo ... ArciverExecutor.obj
-	@echo ... ArciverExecutor.i
-	@echo ... ArciverExecutor.s
-	@echo ... ConfigMapper.obj
-	@echo ... ConfigMapper.i
-	@echo ... ConfigMapper.s
-	@echo ... Exception.obj
-	@echo ... Exception.i
-	@echo ... Exception.s
+	@echo ... ArchiverExecutor.obj
+	@echo ... ArchiverExecutor.i
+	@echo ... ArchiverExecutor.s
 	@echo ... Fano.obj
 	@echo ... Fano.i
 	@echo ... Fano.s
-	@echo ... Log.obj
-	@echo ... Log.i
-	@echo ... Log.s
-	@echo ... Utils.obj
-	@echo ... Utils.i
-	@echo ... Utils.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
 	@echo ... tree.obj
 	@echo ... tree.i
 	@echo ... tree.s
+	@echo ... utils/ConfigMapper.obj
+	@echo ... utils/ConfigMapper.i
+	@echo ... utils/ConfigMapper.s
+	@echo ... utils/Exception.obj
+	@echo ... utils/Exception.i
+	@echo ... utils/Exception.s
+	@echo ... utils/Log.obj
+	@echo ... utils/Log.i
+	@echo ... utils/Log.s
+	@echo ... utils/Utils.obj
+	@echo ... utils/Utils.i
+	@echo ... utils/Utils.s
 .PHONY : help
 
 
