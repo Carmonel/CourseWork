@@ -124,24 +124,10 @@ CMakeFiles/CourseWork.dir/tree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CourseWork.dir/tree.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\NHTHS\Desktop\CourseWork\tree.cpp -o CMakeFiles\CourseWork.dir\tree.cpp.s
 
-CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
-CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj: ../SyntaxChecker.cpp
-CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj: CMakeFiles/CourseWork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj -MF CMakeFiles\CourseWork.dir\SyntaxChecker.cpp.obj.d -o CMakeFiles\CourseWork.dir\SyntaxChecker.cpp.obj -c C:\Users\NHTHS\Desktop\CourseWork\SyntaxChecker.cpp
-
-CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\NHTHS\Desktop\CourseWork\SyntaxChecker.cpp > CMakeFiles\CourseWork.dir\SyntaxChecker.cpp.i
-
-CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\NHTHS\Desktop\CourseWork\SyntaxChecker.cpp -o CMakeFiles\CourseWork.dir\SyntaxChecker.cpp.s
-
 CMakeFiles/CourseWork.dir/Exception.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
 CMakeFiles/CourseWork.dir/Exception.cpp.obj: ../Exception.cpp
 CMakeFiles/CourseWork.dir/Exception.cpp.obj: CMakeFiles/CourseWork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CourseWork.dir/Exception.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CourseWork.dir/Exception.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CourseWork.dir/Exception.cpp.obj -MF CMakeFiles\CourseWork.dir\Exception.cpp.obj.d -o CMakeFiles\CourseWork.dir\Exception.cpp.obj -c C:\Users\NHTHS\Desktop\CourseWork\Exception.cpp
 
 CMakeFiles/CourseWork.dir/Exception.cpp.i: cmake_force
@@ -155,7 +141,7 @@ CMakeFiles/CourseWork.dir/Exception.cpp.s: cmake_force
 CMakeFiles/CourseWork.dir/ConfigMapper.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
 CMakeFiles/CourseWork.dir/ConfigMapper.cpp.obj: ../ConfigMapper.cpp
 CMakeFiles/CourseWork.dir/ConfigMapper.cpp.obj: CMakeFiles/CourseWork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CourseWork.dir/ConfigMapper.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CourseWork.dir/ConfigMapper.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CourseWork.dir/ConfigMapper.cpp.obj -MF CMakeFiles\CourseWork.dir\ConfigMapper.cpp.obj.d -o CMakeFiles\CourseWork.dir\ConfigMapper.cpp.obj -c C:\Users\NHTHS\Desktop\CourseWork\ConfigMapper.cpp
 
 CMakeFiles/CourseWork.dir/ConfigMapper.cpp.i: cmake_force
@@ -169,7 +155,7 @@ CMakeFiles/CourseWork.dir/ConfigMapper.cpp.s: cmake_force
 CMakeFiles/CourseWork.dir/Archive.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
 CMakeFiles/CourseWork.dir/Archive.cpp.obj: ../Archive.cpp
 CMakeFiles/CourseWork.dir/Archive.cpp.obj: CMakeFiles/CourseWork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/CourseWork.dir/Archive.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CourseWork.dir/Archive.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CourseWork.dir/Archive.cpp.obj -MF CMakeFiles\CourseWork.dir\Archive.cpp.obj.d -o CMakeFiles\CourseWork.dir\Archive.cpp.obj -c C:\Users\NHTHS\Desktop\CourseWork\Archive.cpp
 
 CMakeFiles/CourseWork.dir/Archive.cpp.i: cmake_force
@@ -183,7 +169,7 @@ CMakeFiles/CourseWork.dir/Archive.cpp.s: cmake_force
 CMakeFiles/CourseWork.dir/Log.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
 CMakeFiles/CourseWork.dir/Log.cpp.obj: ../Log.cpp
 CMakeFiles/CourseWork.dir/Log.cpp.obj: CMakeFiles/CourseWork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/CourseWork.dir/Log.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/CourseWork.dir/Log.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CourseWork.dir/Log.cpp.obj -MF CMakeFiles\CourseWork.dir\Log.cpp.obj.d -o CMakeFiles\CourseWork.dir\Log.cpp.obj -c C:\Users\NHTHS\Desktop\CourseWork\Log.cpp
 
 CMakeFiles/CourseWork.dir/Log.cpp.i: cmake_force
@@ -197,7 +183,7 @@ CMakeFiles/CourseWork.dir/Log.cpp.s: cmake_force
 CMakeFiles/CourseWork.dir/Utils.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
 CMakeFiles/CourseWork.dir/Utils.cpp.obj: ../Utils.cpp
 CMakeFiles/CourseWork.dir/Utils.cpp.obj: CMakeFiles/CourseWork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/CourseWork.dir/Utils.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/CourseWork.dir/Utils.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CourseWork.dir/Utils.cpp.obj -MF CMakeFiles\CourseWork.dir\Utils.cpp.obj.d -o CMakeFiles\CourseWork.dir\Utils.cpp.obj -c C:\Users\NHTHS\Desktop\CourseWork\Utils.cpp
 
 CMakeFiles/CourseWork.dir/Utils.cpp.i: cmake_force
@@ -214,7 +200,6 @@ CourseWork_OBJECTS = \
 "CMakeFiles/CourseWork.dir/ArciverExecutor.cpp.obj" \
 "CMakeFiles/CourseWork.dir/Fano.cpp.obj" \
 "CMakeFiles/CourseWork.dir/tree.cpp.obj" \
-"CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj" \
 "CMakeFiles/CourseWork.dir/Exception.cpp.obj" \
 "CMakeFiles/CourseWork.dir/ConfigMapper.cpp.obj" \
 "CMakeFiles/CourseWork.dir/Archive.cpp.obj" \
@@ -228,7 +213,6 @@ CourseWork.exe: CMakeFiles/CourseWork.dir/main.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/ArciverExecutor.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/Fano.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/tree.cpp.obj
-CourseWork.exe: CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/Exception.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/ConfigMapper.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/Archive.cpp.obj
@@ -238,7 +222,7 @@ CourseWork.exe: CMakeFiles/CourseWork.dir/build.make
 CourseWork.exe: CMakeFiles/CourseWork.dir/linklibs.rsp
 CourseWork.exe: CMakeFiles/CourseWork.dir/objects1.rsp
 CourseWork.exe: CMakeFiles/CourseWork.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable CourseWork.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable CourseWork.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\CourseWork.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -121,12 +121,6 @@
 		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Log.h">
 			<Option target="CourseWork"/>
 		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/SyntaxChecker.cpp">
-			<Option target="CourseWork"/>
-		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/SyntaxChecker.h">
-			<Option target="CourseWork"/>
-		</Unit>
 		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Utils.cpp">
 			<Option target="CourseWork"/>
 		</Unit>

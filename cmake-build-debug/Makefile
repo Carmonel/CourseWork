@@ -272,30 +272,6 @@ Log.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Log.cpp.s
 .PHONY : Log.cpp.s
 
-SyntaxChecker.obj: SyntaxChecker.cpp.obj
-.PHONY : SyntaxChecker.obj
-
-# target to build an object file
-SyntaxChecker.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj
-.PHONY : SyntaxChecker.cpp.obj
-
-SyntaxChecker.i: SyntaxChecker.cpp.i
-.PHONY : SyntaxChecker.i
-
-# target to preprocess a source file
-SyntaxChecker.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.i
-.PHONY : SyntaxChecker.cpp.i
-
-SyntaxChecker.s: SyntaxChecker.cpp.s
-.PHONY : SyntaxChecker.s
-
-# target to generate assembly for a file
-SyntaxChecker.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.s
-.PHONY : SyntaxChecker.cpp.s
-
 Utils.obj: Utils.cpp.obj
 .PHONY : Utils.obj
 
@@ -395,9 +371,6 @@ help:
 	@echo ... Log.obj
 	@echo ... Log.i
 	@echo ... Log.s
-	@echo ... SyntaxChecker.obj
-	@echo ... SyntaxChecker.i
-	@echo ... SyntaxChecker.s
 	@echo ... Utils.obj
 	@echo ... Utils.i
 	@echo ... Utils.s

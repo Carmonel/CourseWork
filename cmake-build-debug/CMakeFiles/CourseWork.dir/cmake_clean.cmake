@@ -11,8 +11,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/CourseWork.dir/Fano.cpp.obj.d"
   "CMakeFiles/CourseWork.dir/Log.cpp.obj"
   "CMakeFiles/CourseWork.dir/Log.cpp.obj.d"
-  "CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj"
-  "CMakeFiles/CourseWork.dir/SyntaxChecker.cpp.obj.d"
   "CMakeFiles/CourseWork.dir/Utils.cpp.obj"
   "CMakeFiles/CourseWork.dir/Utils.cpp.obj.d"
   "CMakeFiles/CourseWork.dir/main.cpp.obj"

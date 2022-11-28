@@ -1,4 +1,4 @@
-#include "ArciverExecutor.h"
+#include "ArchiverExecutor.h"
 
 #include <iostream>
 #include <string>
@@ -7,10 +7,10 @@
 
 using namespace std;
 
-#include "Exception.h"
+#include "utils/Exception.h"
 #include "Archive.h"
-#include "Utils.h"
-#include "Log.h"
+#include "utils/Utils.h"
+#include "utils/Log.h"
 
 void checkFile(ofstream &fs, const char* msg){
     if (fs.fail() || !fs.is_open()){

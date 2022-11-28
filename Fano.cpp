@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Fano.h"
-#include "Log.h"
-#include "Exception.h"
+#include "utils/Log.h"
+#include "utils/Exception.h"
 
 #include <map>
 #include <sstream>

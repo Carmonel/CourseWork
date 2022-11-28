@@ -3,10 +3,11 @@
 
 #include <string>
 
-void err();
+#include "utils/ConfigMapper.h"
 
-void startAlgorithm(const std::string& path, bool v);
-
-void decompile(const std::string& path, bool v);
+class ArchiverExecutor{
+public:
+    static void execute(Config &config);
+};
 
 #endif //KURSOVAYA_EXECUTEFANO_H
