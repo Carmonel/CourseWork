@@ -200,6 +200,30 @@ Fano.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Fano.cpp.s
 .PHONY : Fano.cpp.s
 
+Tree.obj: Tree.cpp.obj
+.PHONY : Tree.obj
+
+# target to build an object file
+Tree.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Tree.cpp.obj
+.PHONY : Tree.cpp.obj
+
+Tree.i: Tree.cpp.i
+.PHONY : Tree.i
+
+# target to preprocess a source file
+Tree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Tree.cpp.i
+.PHONY : Tree.cpp.i
+
+Tree.s: Tree.cpp.s
+.PHONY : Tree.s
+
+# target to generate assembly for a file
+Tree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Tree.cpp.s
+.PHONY : Tree.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -223,30 +247,6 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-tree.obj: tree.cpp.obj
-.PHONY : tree.obj
-
-# target to build an object file
-tree.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/tree.cpp.obj
-.PHONY : tree.cpp.obj
-
-tree.i: tree.cpp.i
-.PHONY : tree.i
-
-# target to preprocess a source file
-tree.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/tree.cpp.i
-.PHONY : tree.cpp.i
-
-tree.s: tree.cpp.s
-.PHONY : tree.s
-
-# target to generate assembly for a file
-tree.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/tree.cpp.s
-.PHONY : tree.cpp.s
 
 utils/ConfigMapper.obj: utils/ConfigMapper.cpp.obj
 .PHONY : utils/ConfigMapper.obj
@@ -362,12 +362,12 @@ help:
 	@echo ... Fano.obj
 	@echo ... Fano.i
 	@echo ... Fano.s
+	@echo ... Tree.obj
+	@echo ... Tree.i
+	@echo ... Tree.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... tree.obj
-	@echo ... tree.i
-	@echo ... tree.s
 	@echo ... utils/ConfigMapper.obj
 	@echo ... utils/ConfigMapper.i
 	@echo ... utils/ConfigMapper.s

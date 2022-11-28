@@ -110,19 +110,19 @@ CMakeFiles/CourseWork.dir/Fano.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CourseWork.dir/Fano.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\NHTHS\Desktop\CourseWork\Fano.cpp -o CMakeFiles\CourseWork.dir\Fano.cpp.s
 
-CMakeFiles/CourseWork.dir/tree.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
-CMakeFiles/CourseWork.dir/tree.cpp.obj: ../tree.cpp
-CMakeFiles/CourseWork.dir/tree.cpp.obj: CMakeFiles/CourseWork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CourseWork.dir/tree.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CourseWork.dir/tree.cpp.obj -MF CMakeFiles\CourseWork.dir\tree.cpp.obj.d -o CMakeFiles\CourseWork.dir\tree.cpp.obj -c C:\Users\NHTHS\Desktop\CourseWork\tree.cpp
+CMakeFiles/CourseWork.dir/Tree.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
+CMakeFiles/CourseWork.dir/Tree.cpp.obj: ../Tree.cpp
+CMakeFiles/CourseWork.dir/Tree.cpp.obj: CMakeFiles/CourseWork.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CourseWork.dir/Tree.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CourseWork.dir/Tree.cpp.obj -MF CMakeFiles\CourseWork.dir\Tree.cpp.obj.d -o CMakeFiles\CourseWork.dir\Tree.cpp.obj -c C:\Users\NHTHS\Desktop\CourseWork\Tree.cpp
 
-CMakeFiles/CourseWork.dir/tree.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CourseWork.dir/tree.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\NHTHS\Desktop\CourseWork\tree.cpp > CMakeFiles\CourseWork.dir\tree.cpp.i
+CMakeFiles/CourseWork.dir/Tree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CourseWork.dir/Tree.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\NHTHS\Desktop\CourseWork\Tree.cpp > CMakeFiles\CourseWork.dir\Tree.cpp.i
 
-CMakeFiles/CourseWork.dir/tree.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CourseWork.dir/tree.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\NHTHS\Desktop\CourseWork\tree.cpp -o CMakeFiles\CourseWork.dir\tree.cpp.s
+CMakeFiles/CourseWork.dir/Tree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CourseWork.dir/Tree.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\NHTHS\Desktop\CourseWork\Tree.cpp -o CMakeFiles\CourseWork.dir\Tree.cpp.s
 
 CMakeFiles/CourseWork.dir/utils/Exception.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
 CMakeFiles/CourseWork.dir/utils/Exception.cpp.obj: ../utils/Exception.cpp
@@ -199,7 +199,7 @@ CourseWork_OBJECTS = \
 "CMakeFiles/CourseWork.dir/main.cpp.obj" \
 "CMakeFiles/CourseWork.dir/ArchiverExecutor.cpp.obj" \
 "CMakeFiles/CourseWork.dir/Fano.cpp.obj" \
-"CMakeFiles/CourseWork.dir/tree.cpp.obj" \
+"CMakeFiles/CourseWork.dir/Tree.cpp.obj" \
 "CMakeFiles/CourseWork.dir/utils/Exception.cpp.obj" \
 "CMakeFiles/CourseWork.dir/utils/ConfigMapper.cpp.obj" \
 "CMakeFiles/CourseWork.dir/Archive.cpp.obj" \
@@ -212,7 +212,7 @@ CourseWork_EXTERNAL_OBJECTS =
 CourseWork.exe: CMakeFiles/CourseWork.dir/main.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/ArchiverExecutor.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/Fano.cpp.obj
-CourseWork.exe: CMakeFiles/CourseWork.dir/tree.cpp.obj
+CourseWork.exe: CMakeFiles/CourseWork.dir/Tree.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/utils/Exception.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/utils/ConfigMapper.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/Archive.cpp.obj

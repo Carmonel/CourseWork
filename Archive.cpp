@@ -4,75 +4,82 @@
 
 #include "Archive.h"
 #include "utils/Log.h"
-#include "tree.h"
+#include "Tree.h"
 #include "Fano.h"
 
 #include <sstream>
 
 using namespace std;
 
-void readInt(std::ifstream &source, string& binary, int& valueExport){
-    // Считывается значение
+vector<bool> readBits(std::ifstream &source){
+    auto bits = vector<bool>();
+
+    // Считывание количества байт
+    char bytesCount;
+    source.read(&bytesCount, 1);
+
+    char temp;
+    source.read(&temp, 1);
+
+    char pos = 7;
+    while (temp >> pos == 0) {
+        pos--;
+    }
+
+    for (unsigned char i = 0; i < (unsigned char)(bytesCount); i++) {
+        char temp;
+        char mask = 1 << pos;
+        source.read(&temp, 1);
+
+        for (; pos >= 0; pos--) {
+            bits.push_back(temp & mask);
+            mask >>= 1;
+        }
+        pos = 7;
+    }
+
+    return bits;
+}
+
+char readByte(std::ifstream &source){
     char value;
     source.read(&value, 1);
-    valueExport = value;
-    // Считывание количества байт
-    char bitsCount;
-    source.read(&bitsCount, 1);
-
-    while (bitsCount > 0){
-        // Считывание нулей
-        char nulls;
-        source.read(&nulls, 1);
-        // Считывание части строки
-        char byte;
-        source.read(&byte, 1);
-
-        string bits;
-        unsigned char bit = byte;
-        while (bit){
-            bits.push_back((bit & 1) + '0');
-            bit >>= 1;
-        }
-        std::reverse(bits.begin(), bits.end());
-        while (nulls > 0){
-            bits.insert(0, "0");
-            nulls--;
-        }
-        binary += bits;
-
-        bitsCount--;
-    }
+    return value;
 }
 
 Node* readTree(std::ifstream &source){
-    Node* head = new Node;
+    Node* head = new Node(vector<bool>());
     char count;
     source.read(&count, 1);
 
-    while (count > 0) {
-        int value;
-        string bits;
-
-        readInt(source, bits, value);
+    for (; count > 0; count--) {
+        char byte = readByte(source);
+        auto bits = readBits(source);
 
         Node* thisNode = head;
-        string str;
-        for (int i = 0; i < bits.length(); i++){
-            if (bits.at(i) == '0'){
-                if (thisNode->returnLeftNode() == nullptr) thisNode = thisNode->createLeft(str);
-                else thisNode = thisNode->returnLeftNode();
-                str = thisNode->returnStr();
-                continue;
-            }
-            if (bits.at(i) == '1'){
-                if (thisNode->returnRightNode() == nullptr) thisNode = thisNode->createRight(str);
-                else thisNode = thisNode->returnRightNode();
-                str = thisNode->returnStr();
+
+        for (int i = 0; i < bits.size(); i++){
+            Node* tempNode = nullptr;
+
+            if (bits[i] == 0){
+                tempNode = thisNode->getLeftNode();
+                if (tempNode == nullptr) {
+                    thisNode->setLeftNode(Node(vector<bool>(bits.begin(), bits.begin() + i)));
+                    tempNode = thisNode->getLeftNode();
+                }
+                thisNode = tempNode;
+
+            } else {
+                tempNode = thisNode->getRightNode();
+                if (tempNode == nullptr) {
+                    thisNode->setRightNode(Node(vector<bool>(bits.begin(), bits.begin() + i)));
+                    tempNode = thisNode->getRightNode();
+                }
+                thisNode = tempNode;
+
             }
         }
-        thisNode->setValue(value);
-        count--;
+        thisNode->setByteAsLeaf(byte);
     }
     return head;
 }
@@ -110,14 +117,14 @@ void writeDecompressed(std::ofstream& target, Node* treeHead, std::ifstream& sou
             }
         }
         while (true){
-            if ((thisNode->returnLeftNode() == nullptr) && (thisNode->returnRightNode() == nullptr)){
-                char forHex = (char)thisNode->returnValue();
+            if (thisNode->isLeaf()){
+                char forHex = thisNode->getByte();
                 target.write(&forHex, 1);
                 thisNode = treeHead;
             }
             if (stream.length() == 0) break;
-            if (stream.at(0) == '0') thisNode = thisNode->returnLeftNode();
-            if (stream.at(0) == '1') thisNode = thisNode->returnRightNode();
+            if (stream.at(0) == '0') thisNode = thisNode->getLeftNode();
+            if (stream.at(0) == '1') thisNode = thisNode->getRightNode();
             string temp = stream.substr(1);
             stream = temp;
         }

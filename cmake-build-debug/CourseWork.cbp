@@ -100,13 +100,13 @@
 		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Fano.h">
 			<Option target="CourseWork"/>
 		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Tree.cpp">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Tree.h">
+			<Option target="CourseWork"/>
+		</Unit>
 		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/main.cpp">
-			<Option target="CourseWork"/>
-		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/tree.cpp">
-			<Option target="CourseWork"/>
-		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/tree.h">
 			<Option target="CourseWork"/>
 		</Unit>
 		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/utils/ConfigMapper.cpp">

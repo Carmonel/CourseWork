@@ -1,16 +1,136 @@
-#include <iostream>
 #include "Fano.h"
 #include "utils/Log.h"
 #include "utils/Exception.h"
 
 #include <map>
 #include <sstream>
+#include <vector>
+#include <stack>
+#include <stdlib.h>
 
 using namespace std;
 
 // https://iq.opengenus.org/sorting-vector-in-cpp/
-bool compare(pair<char, int> a, pair<char, int> b){
+bool operator<(pair<unsigned char, size_t> &a, pair<unsigned char, size_t> &b){
     return a.second > b.second;
+}
+
+// [Создание дерева]
+// Функция с рекурсией, что разделяет массив на две части так, что разность сумм двух частей была минимальна.
+// Рекурсия состоит в том, что необходимо разделить массив неизвестного размера, поэтому функция разделяет массив и подмассивы
+// до того момента, как размер новой части массива не станет равна единице (всего один элемент в массиве).
+//
+// Для перехода на следующий часть в конце алгоритма вызывается эта же функция, но для левого подмассива вызывается прошлый
+// указатель на начало массива-родителя, а для правого вызывается указатель на место разрыва массива-родителя.
+// Для каждого случая так же вызывается размер массива.
+void makeTree(const pair<unsigned char, size_t>* array, size_t arraySize, Node* node){
+    // [Конец рекурсии]
+    // Создание листьев, если у части массива остался 1 элемент
+    if (arraySize == 1){
+        node->setByteAsLeaf(array[0].first); // Ввод получившегося символа в лист дерева
+        return;
+    }
+
+    // [Основной алгоритм]
+    // Нахождение середины массива так, что, разделив его, сумма элементов из частей массива имеет минимальную разницу.
+    // 1. Создание дополнительного массива для запоминания разности сумм при различных местах разрыва.
+    // 2.1 Цикличный проход по всем элементам от 0 до size-1.
+    // 2.2 Если предыдущая разность была меньше чем нынешняя, то возврат места разрыва на прошлый элемент.
+    //
+    // differenceHolder[] - массив для сохранения результатов подсчета разностей на каждом шаге.
+    // index - значение, показывающее где необходим разрыв.
+    auto* differenceHolder = new size_t[arraySize];
+    size_t index = 0;
+
+    // Шаг 2.1
+    for (index = 0; index < arraySize; index++){
+
+        long long leftSum = 0; // Подсчет левой части
+        long long rightSum = 0; // Подсчет правой части
+
+        // Заполнение left и right циклом, что проходит от 0 до size-1
+        // Если мы на элементе левее нынешнего index, то увеличивается leftSum
+        // Если мы на элементе правее нынешнего index, то увеличивается rightSum
+        for (int j = 0; j < arraySize; j++){
+            if (j < index) leftSum = leftSum + array[j].second;
+            else rightSum =  rightSum + array[j].second;
+        }
+        differenceHolder[index] = abs(leftSum - rightSum); // Запоминание разницы
+
+        // Шаг 2.2
+        if ((index != 0) && (differenceHolder[index] > differenceHolder[index - 1])) {
+            index--;
+            break;
+        }
+    }
+
+    // Если середина в конце, то справа будет массив без элементов, возврат на элемент назад
+    if (index == arraySize) index--;
+
+    // Удаление differenceHolder за ненадобностью далее
+    delete[] differenceHolder;
+
+    // [Рекурсия]
+    // Для построения дерева с весами '0' или '1', при прохождении влево добавляется '0', при прохождении направо '1'
+    // Для левого массива, копирование битов с прошлого нода.
+    // Для правого массива, копирование битов с прошлого нода.
+    // В качестве аргументов в createLeft(...) входит returnStr() для записывания '0' или '1' к прошлому значению битов.
+    auto nextBits = vector<bool>(node->getBits());
+
+    nextBits.push_back(0);
+    node->setLeftNode(Node(nextBits));
+
+    nextBits.at(nextBits.size() - 1) = 1;
+    node->setRightNode(Node(nextBits));
+
+    makeTree(array, index, node->getLeftNode());
+    makeTree(array + index, arraySize - index, node->getRightNode());
+}
+
+vector<pair<unsigned char, size_t>> mapToSortedVector(map<unsigned char, size_t> &map){
+    auto tempArr = vector<pair<unsigned char, size_t>>();
+
+    for (unsigned char i = 0; i < UCHAR_MAX; i++) {
+        tempArr.emplace_back(*map.find(i));
+    }
+    sort(tempArr.begin(), tempArr.end());
+    return tempArr;
+}
+
+std::vector< std::pair<unsigned char, std::vector<bool>>>
+        mapToBytesArray(Node *head){
+    auto mapped = std::vector< std::pair<unsigned char, std::vector<bool>>>();
+    stack<Node*> stackNodes = stack<Node*>();
+    stackNodes.push(head);
+
+    while (!stackNodes.empty()){
+        auto cur = stackNodes.top();
+        if (cur->isLeaf()){
+            mapped.emplace_back(cur->getByte(), cur->getBits());
+            stackNodes.pop();
+        } else {
+            stackNodes.pop();
+            stackNodes.push(cur->getRightNode());
+            stackNodes.push(cur->getLeftNode());
+        }
+    }
+
+    return mapped;
+}
+
+void removeRedudantZeros(std::vector<std::pair<unsigned char, std::vector<bool>>> &vec){
+    for (auto &p : vec) {
+        auto &bits = p.second;
+        size_t i = 0;
+        for (i = 0; i < bits.size() - 1; ++i) {
+            if (bits[i] == 1) {
+                break;
+            }
+        }
+        if (i > 0) {
+            bits.erase(bits.begin(), bits.begin() + i);
+        }
+    }
 }
 
 Fano::Fano(std::istream &input) {
@@ -22,47 +142,16 @@ Fano::Fano(std::istream &input) {
         bytesFrequency[ch]++;
     }
 
-    stringstream ss;
-    for (auto &p : bytesFrequency){
-        ss << int(p.first) << "|" << p.second << endl;
-    }
-    Log::d(ss.str());
+    auto tempArr = mapToSortedVector(bytesFrequency);
 
-    auto tempArr = vector<size_t>(256);
-    for (unsigned char i = 0; i < UCHAR_MAX; i++) {
-        tempArr.push_back(bytesFrequency[i]);
-    }
+    Node head = Node(vector<bool>());
 
-    Node* head = new Node;
-    makeTree(tempArr.cbegin().base(), tempArr.size(), head);
-    cout <<"-------------------------------------------------tree" << endl;
-    print(head, 0);
-    cout <<"-------------------------------------------------tree end" << endl;
+    makeTree(tempArr.cbegin().base(), tempArr.size(), &head);
+    tempArr.clear();
 
+    storedCode = mapToBytesArray(&head);
 
-    // Сейчас обход по дереву, где char и binary string
-    returnValues(head, 0, storedCode);
-    Log::d("-----------===== " + to_string(storedCode.size()) + "--------------");
-    stringstream ss2;
-    for (auto &p : storedCode){
-        ss2 << int(p.first) << "|" << p.second << endl;
-    }
-    //Log::d(ss.str());
-
-    Log::d("-------------------------------------------------stored\n"
-    + ss2.str() +
-                   "-------------------------------------------------stored end");
-
-    // Исправление пропуска
-    auto itCode = storedCode.begin();
-    while (itCode != storedCode.end()){
-        if (itCode->second.empty()) break;
-        ++itCode;
-    }
-    if (itCode != storedCode.end()){
-        itCode->second = (storedCode.end()-1)->second;
-        storedCode.pop_back();
-    }
+    removeRedudantZeros(storedCode);
 }
 
 Fano::~Fano() {
@@ -85,48 +174,30 @@ void Fano::generateInefficient(std::istream &input, std::ostream &out){
     while (input.read(&ch, 1)) out.write(&ch, 1);
 }
 
-void writeInt(std::ostream& file, char value, string& str){
+void writeInt(std::ostream& file, char byte, std::vector<bool>& bits){
     // Записали значение
-    file.write(&value, 1);
+    file.write(&byte, 1);
 
     // Подсчет сколько надо выделить байт
-    char size = str.size() / 8;
-    if (str.size() % 8 > 0) size++;
+    char bytesCount = (bits.size() / 8) + (bits.size() % 8);
 
     // Записали количество байт сколько надо считать
-    file.write(&size, 1);
+    file.write(&bytesCount, 1);
 
-    // Запись
-    for (int i = 0; i < str.length(); i++){
-        // Записать концовку
-        if (str.length() < 8){
-            string temp(str, i, str.length());
+    size_t bitsPos = 0;
+    int pos = 7 - (bits.size() % 8);
+    while(bitsPos < bits.size()) {
+        char temp = 0;
 
-            // ПОдсчет количестве нулей в начале
-            char k = 0;
-            while (temp[k] == '0') k++;
-            // Запись количестве нулей в начале
-            file.write(&k, 1);
-
-            // Запись string в виде числа
-            k = stoi(temp, nullptr, 2);
-            file.write(&k, 1);
-
-            break;
+        for (; pos >= 0; pos--) {
+            if (bits[bitsPos]) {
+                temp |= char(bits[bitsPos]) << pos; //с помощью логического сложения занесли бит
+                bitsPos++;
+            }
         }
-        string temp(str, i, 8);
 
-        // Подсчет количестве нулей в начале
-        char k = 0;
-        while (temp[k] == '0') k++;
-        // Запись количестве нулей в начале
-        file.write(&k, 1);
-
-        // Запись string в виде числа
-        k = stoi(temp, nullptr, 2);
-        file.write(&k, 1);
-
-        i = i + 7;
+        pos = 7;
+        file.write(&temp, 1);
     }
 }
 
@@ -136,81 +207,66 @@ void Fano::writeKeys(std::ostream &out) {
     char size = storedCode.size();
     out.write(&size, 1);
 
-    // Данные записываются: [символ][кол-во байт которые надо считать] ||[количество нулей в начале][HEX значения]||
+    // Данные записываются: [символ][кол-во байт которые надо считать] ||[количество нулей в начале][BIN значения]||
     // Если значение начинается с 0, то количество нулей до первой единицы записывается во вторые []
     //
     // Знаком || помечаются границы послежовательности для записи двоичного представления
     //
-    // '0100', HEX представление 4 = '100', но из этого не построится дерево.
+    // '0100', BIN представление 4 = '100', но из этого не построится дерево.
     // То есть запишется: [символ] ||[01][04] ||
     //
-    // Если значение начинается с 1, то ничего не трубется.
+    // Если значение начинается с 1, то ничего не требуется.
     // То есть запишется: [символ] ||[00][значение]||
 
     for (int i = 0; i < storedCode.size(); i++){
-
         writeInt(out, storedCode.at(i).first, storedCode.at(i).second);
-
-        std::cout << std::dec << i << " ";
-        if ((i % 100 == 0) && (i > 100)){
-            std::cout << std::endl;
-        }
     }
 }
 
-void Fano::generateArchived(std::istream &input, std::ostream &out) {
+vector<char> fromBitsToBytes(vector<bool> &bits){
+    auto result = vector<char>();
 
+    size_t bitsPos = 0;
+    int pos = 7 - (bits.size() % 8);
+    while(bitsPos < bits.size()) {
+        char temp = 0;
+
+        for (; pos >= 0; pos--) {
+            if (bits[bitsPos]) {
+                temp |= char(bits[bitsPos]) << pos; //с помощью логического сложения занесли бит
+                bitsPos++;
+            }
+        }
+
+        pos = 7;
+        result.push_back(temp);
+    }
+
+    return result;
+}
+
+map<unsigned char, vector<char>>
+        mapToBytesMap(vector<pair<unsigned char, vector<bool>>> &bitsVec){
+    auto result = map<unsigned char, vector<char>>();
+
+    for (auto &p : bitsVec) {
+        result.insert({p.first, fromBitsToBytes(p.second)});
+    }
+
+    return result;
+}
+
+void Fano::generateArchived(std::istream &input, std::ostream &out) {
     Log::v("Scanning and writing... ");
 
-    char ch = 100;
-    size_t posToEndSize = out.tellp();
-    size_t size;
-    out.write(&ch, 1);
+    auto codes = mapToBytesMap(storedCode);
 
-    string stream;
-    size_t i = 0;
-    size_t j = 0;
+    char ch = 0;
 
     while(input.read(&ch, 1)){
-        if (stream.length() >= 8){
-            if ((j % 50000 == 0) && (j > 0)){
-                Log::v("Writed to export file " + std::to_string(int(i / 1000)) + "k bytes.");
-            }
-            j++;
-            string k(stream, 0, 8);
-            char outCh = stoi(k, nullptr, 2);
-            out.write(&outCh, 1);
-            stream.erase(0, 8);
+        auto bytes = codes[ch];
+        for (auto it = bytes.begin(); it < bytes.end(); ++it) {
+            out.write(it.base(), 1);
         }
-        if ((i % 1000000 == 0) && (i > 0)){
-            Log::v("Scanned from imported file " + std::to_string(int(i / 1000000)) + "kk bytes.");
-        }
-        auto it = storedCode.begin();
-        while ((it != storedCode.end()) && (it->first != ch)) ++it;
-        if (it == storedCode.end()){
-            throw Exception("Not found relation between [streamFile >> ch] and [storedCode] code: " + to_string((unsigned char)(ch)));
-        }
-        stream += it->second;
-        i++;
     }
-    size = stream.length() % 8;
-    while (stream.length() > 0){
-        if ((j % 50000 == 0) && (j > 0)){
-            Log::v("Writed to export file " + to_string(int(i / 1000)) + "k bytes.");
-        }
-        if (stream.length() < 8){
-            char outCh = stoi(stream, nullptr, 2);
-            out.write(&outCh, 1);
-            break;
-        }
-        string k(stream, 0, 8);
-        char outCh = stoi(k, nullptr, 2);
-        out.write(&outCh, 1);
-        stream.erase(0, 8);
-        j++;
-    }
-
-    ch = size;
-    out.seekp(posToEndSize);
-    out.write(&ch, 1);
 }

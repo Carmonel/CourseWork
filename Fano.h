@@ -1,14 +1,14 @@
 #ifndef KURSOVAYA_FANO_H
 #define KURSOVAYA_FANO_H
 
-#include "tree.h"
+#include "Tree.h"
 #include <vector>
 
 #include <iostream>
 
 class Fano {
 private:
-    std::vector< std::pair<unsigned char, std::string> > storedCode;
+    std::vector< std::pair<unsigned char, std::vector<bool>> > storedCode;
 public:
     Fano(std::istream &input);
 
@@ -24,12 +24,13 @@ public:
 inline std::ostream& operator<<(std::ostream& outLine, const Fano& outClass){
     std::cout << "Code:" << std::endl;
     for (auto &i : outClass.storedCode){
-        outLine << (int)i.first << ".'" << i.second << "'" << std::endl;
+        outLine << (int)i.first << ".'";
+        for (bool b : i.second) {
+            outLine << b;
+        }
+        outLine << "'" << std::endl;
     }
     return outLine;
 }
-
-void startAlgorithm(const std::string& path);
-std::vector< std::pair<int, int> >::iterator findVectorIt(std::vector<std::pair<int, int>>* vec, int value);
 
 #endif //KURSOVAYA_FANO_H
