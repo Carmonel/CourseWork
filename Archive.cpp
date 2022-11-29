@@ -1,7 +1,3 @@
-//
-// Created by NHTHS on 25.11.22.
-//
-
 #include "Archive.h"
 #include "utils/Log.h"
 #include "Tree.h"
@@ -47,8 +43,8 @@ char readByte(std::ifstream &source){
     return value;
 }
 
-Node* readTree(std::ifstream &source){
-    Node* head = new Node(vector<bool>());
+Node readTree(std::ifstream &source){
+    Node head = Node(vector<bool>());
     char count;
     source.read(&count, 1);
 
@@ -56,7 +52,7 @@ Node* readTree(std::ifstream &source){
         char byte = readByte(source);
         auto bits = readBits(source);
 
-        Node* thisNode = head;
+        Node* thisNode = &head;
 
         for (int i = 0; i < bits.size(); i++){
             Node* tempNode = nullptr;
@@ -84,7 +80,7 @@ Node* readTree(std::ifstream &source){
     return head;
 }
 
-void writeDecompressed(std::ofstream& target, Node* treeHead, std::ifstream& sourceData){
+void writeDecompressed(std::ofstream& target, Node &treeHead, std::ifstream& sourceData){
     string stream;
 
     char endBits;
@@ -92,7 +88,7 @@ void writeDecompressed(std::ofstream& target, Node* treeHead, std::ifstream& sou
     endBits = 8 - endBits;
 
     char byte;
-    Node* thisNode = treeHead;
+    Node* thisNode = &treeHead;
     while (sourceData.read(&byte, 1)){
         int a = 0;
         string charToBin;
@@ -120,7 +116,7 @@ void writeDecompressed(std::ofstream& target, Node* treeHead, std::ifstream& sou
             if (thisNode->isLeaf()){
                 char forHex = thisNode->getByte();
                 target.write(&forHex, 1);
-                thisNode = treeHead;
+                thisNode = &treeHead;
             }
             if (stream.length() == 0) break;
             if (stream.at(0) == '0') thisNode = thisNode->getLeftNode();
@@ -130,24 +126,6 @@ void writeDecompressed(std::ofstream& target, Node* treeHead, std::ifstream& sou
         }
     }
 }
-
-void decompressInefficient(std::ifstream& streamFile, std::ofstream& decompiledFile){
-    Log::v("Copying data from stream file to decompiled file...");
-    Log::v("Converting stream data to export file...");
-    char ch;
-    while (streamFile.read(&ch, 1)) decompiledFile.write(&ch, 1);
-}
-
-bool isInefficient(std::ifstream& file){
-    char check;
-    file.read(&check, 1);
-    if (check == 0){
-        Log::v("Attention: this file was compressed inefficient.");
-        return true;
-    }
-    return false;
-}
-
 
 Archive::Archive(std::ifstream &input) : input(input) {
 }
@@ -159,13 +137,6 @@ void Archive::compress(std::ofstream &output) {
     // Заполнение storedUsages, подсчет количества использований
     Fano main(input);
     Log::v((stringstream() << main).str());
-
-    if (!main.isEfficiency()){
-        Log::i("Attention: this file compressed inefficient.");
-        main.generateInefficient(input, output);
-        Log::v("File successfully archived!");
-        return;
-    }
 
     Log::v("Generating keys...");
     // Генератор keys
@@ -183,14 +154,8 @@ void Archive::compress(std::ofstream &output) {
 void Archive::decompress(std::ofstream &output) {
     std::ios_base::sync_with_stdio(false);
 
-    if (isInefficient(input)){
-        decompressInefficient(input, output);
-        Log::v("File successfully unpacked!");
-        return;
-    }
-
     Log::v("Generating tree by stream data...");
-    Node* treeHead = readTree(input);
+    Node treeHead = readTree(input);
 
     Log::v("Converting stream data to export file...");
 

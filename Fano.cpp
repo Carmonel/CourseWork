@@ -7,6 +7,7 @@
 #include <vector>
 #include <stack>
 #include <stdlib.h>
+#include <bitset>
 
 using namespace std;
 
@@ -142,6 +143,11 @@ Fano::Fano(std::istream &input) {
         bytesFrequency[ch]++;
     }
 
+    Log::d("frequency");
+    for (auto &p : bytesFrequency) {
+        Log::d(to_string(p.first) + "|" + to_string(p.second));
+    }
+
     auto tempArr = mapToSortedVector(bytesFrequency);
 
     Node head = Node(vector<bool>());
@@ -156,49 +162,6 @@ Fano::Fano(std::istream &input) {
 
 Fano::~Fano() {
     storedCode.clear();
-}
-
-bool Fano::isEfficiency(){
-    if (storedCode.size() != 256) return true;
-
-    for (auto & i : storedCode){
-        if (i.second.size() != 8) return true;
-    }
-
-    return false;
-}
-
-void Fano::generateInefficient(std::istream &input, std::ostream &out){
-    char ch = 0;
-    out.write(&ch, 1);
-    while (input.read(&ch, 1)) out.write(&ch, 1);
-}
-
-void writeInt(std::ostream& file, char byte, std::vector<bool>& bits){
-    // Записали значение
-    file.write(&byte, 1);
-
-    // Подсчет сколько надо выделить байт
-    char bytesCount = (bits.size() / 8) + (bits.size() % 8);
-
-    // Записали количество байт сколько надо считать
-    file.write(&bytesCount, 1);
-
-    size_t bitsPos = 0;
-    int pos = 7 - (bits.size() % 8);
-    while(bitsPos < bits.size()) {
-        char temp = 0;
-
-        for (; pos >= 0; pos--) {
-            if (bits[bitsPos]) {
-                temp |= char(bits[bitsPos]) << pos; //с помощью логического сложения занесли бит
-                bitsPos++;
-            }
-        }
-
-        pos = 7;
-        file.write(&temp, 1);
-    }
 }
 
 void Fano::writeKeys(std::ostream &out) {
@@ -218,55 +181,67 @@ void Fano::writeKeys(std::ostream &out) {
     // Если значение начинается с 1, то ничего не требуется.
     // То есть запишется: [символ] ||[00][значение]||
 
-    for (int i = 0; i < storedCode.size(); i++){
-        writeInt(out, storedCode.at(i).first, storedCode.at(i).second);
-    }
-}
+    Log::d("Write key loop");
 
-vector<char> fromBitsToBytes(vector<bool> &bits){
-    auto result = vector<char>();
-
-    size_t bitsPos = 0;
-    int pos = 7 - (bits.size() % 8);
-    while(bitsPos < bits.size()) {
-        char temp = 0;
-
-        for (; pos >= 0; pos--) {
-            if (bits[bitsPos]) {
-                temp |= char(bits[bitsPos]) << pos; //с помощью логического сложения занесли бит
-                bitsPos++;
+    int inBytePos = 7; //позиция внутри tempByte (будем идти со старшего бита к младшему)
+    char tempByte = 0; //байт для записи
+    for (auto &p : storedCode){
+        //пишем длинну битов как 1 байтовое число
+        int inNumPos = 7;
+        while (inNumPos >= 0) {
+            while (inBytePos >= 0 && inNumPos >= 0) {
+                char bit = (p.first & (1 << inNumPos)); // взяли бит
+                int seek = inBytePos - inNumPos; //смотрим куда двигать бит, чтобы занести в tempByte
+                if (seek < 0) {
+                    tempByte |= bit >> -seek;
+                } else {
+                    tempByte |= bit << seek;
+                }
+                inBytePos--;
+                inNumPos--;
+            }
+            if (inBytePos < 0) {
+                out.write(&tempByte, 1);
+                tempByte = 0;
+                inBytePos = 7;
             }
         }
 
-        pos = 7;
-        result.push_back(temp);
+        //пишем биты
+        for (bool b : p.second) {
+            tempByte |= (b << inBytePos);
+            if (inBytePos == 0) {
+                out.write(&tempByte, 1);
+                tempByte = 0;
+                inBytePos = 7;
+            }
+            inBytePos--;
+        }
+
     }
-
-    return result;
-}
-
-map<unsigned char, vector<char>>
-        mapToBytesMap(vector<pair<unsigned char, vector<bool>>> &bitsVec){
-    auto result = map<unsigned char, vector<char>>();
-
-    for (auto &p : bitsVec) {
-        result.insert({p.first, fromBitsToBytes(p.second)});
-    }
-
-    return result;
 }
 
 void Fano::generateArchived(std::istream &input, std::ostream &out) {
     Log::v("Scanning and writing... ");
 
-    auto codes = mapToBytesMap(storedCode);
+    auto codes = map(storedCode.begin(), storedCode.end());
 
-    char ch = 0;
+    char ch = 0; //сначала читаем им, потом сразу же в него и пишем
+
+    int inBytePos = 7; //позиция внутри tempByte (будем идти со старшего бита к младшему)
+    char tempByte = 0; //байт для записи
 
     while(input.read(&ch, 1)){
-        auto bytes = codes[ch];
-        for (auto it = bytes.begin(); it < bytes.end(); ++it) {
-            out.write(it.base(), 1);
+        auto &bits = codes[ch];
+        //пишем биты
+        for (bool b : bits) {
+            tempByte |= (b << inBytePos);
+            if (inBytePos == 0) {
+                out.write(&tempByte, 1);
+                tempByte = 0;
+                inBytePos = 7;
+            }
+            inBytePos--;
         }
     }
 }

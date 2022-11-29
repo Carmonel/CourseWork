@@ -69,3 +69,37 @@ std::ostream &returnOutStream(ostream &os, Node *node, int depth) {
     if (child != nullptr) returnOutStream(os, child, depth+1);
     return os;
 }
+
+Node &Node::operator=(const Node &node) {
+    if (this == &node) {
+        return *this;
+    }
+
+    leaf = node.leaf;
+    byte = node.byte;
+    bits = node.bits;
+
+    if (node.left != nullptr) {
+        left = new Node(*node.left);
+    }
+
+    if (node.right != nullptr) {
+        right = new Node(*node.right);
+    }
+
+    return *this;
+}
+
+Node::Node(const Node &node) {
+    leaf = node.leaf;
+    byte = node.byte;
+    bits = node.bits;
+
+    if (node.left != nullptr) {
+        left = new Node(*node.left);
+    }
+
+    if (node.right != nullptr) {
+        right = new Node(*node.right);
+    }
+}

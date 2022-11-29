@@ -16,6 +16,9 @@ private:
 
 public:
     explicit Node(const std::vector<bool> &bits);
+    Node(const Node &node);
+    ~Node();
+    Node& operator=(const Node &node);
 
     const std::vector<bool>& getBits();
 
@@ -29,8 +32,6 @@ public:
 
     void setRightNode(const Node &node);
     Node* getRightNode();
-
-    ~Node();
 
     friend std::ostream& operator<<(std::ostream &os, Node &node);
 };
