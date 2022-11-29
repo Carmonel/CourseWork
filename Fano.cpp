@@ -238,5 +238,7 @@ void Fano::generateArchived(std::istream &input, std::ostream &out) {
             }
             inBytePos--;
         }
+        tempByte = inBytePos;
+        out.write(&tempByte, 1);//последний байт всегда показывает длину "хвоста предпоследнего байта"
     }
 }
