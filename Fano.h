@@ -2,6 +2,7 @@
 #define KURSOVAYA_FANO_H
 
 #include "Tree.h"
+#include "utils/Log.h"
 #include <vector>
 
 #include <iostream>
@@ -14,15 +15,12 @@ public:
 
     friend std::ostream& operator<<(std::ostream& outLine, const Fano& outClass);
     void writeKeys(std::ostream &out);
-    void generateInefficient(std::istream &input, std::ostream &out);
     void generateArchived(std::istream &input, std::ostream &out);
-    bool isEfficiency();
 
     ~Fano();
 };
 
 inline std::ostream& operator<<(std::ostream& outLine, const Fano& outClass){
-    std::cout << "Code:" << std::endl;
     for (auto &i : outClass.storedCode){
         outLine << (int)i.first << ".'";
         for (bool b : i.second) {

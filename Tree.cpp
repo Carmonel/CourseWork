@@ -1,4 +1,5 @@
 #include "Tree.h"
+#include "utils/Log.h"
 
 using namespace std;
 
@@ -11,8 +12,7 @@ Node::Node(const vector<bool> &bits) {
 }
 
 Node::~Node() {
-    delete left;
-    delete right;
+    //TODO
 }
 
 void Node::setLeftNode(const Node &node) {

@@ -156,7 +156,6 @@ Fano::Fano(std::istream &input) {
     tempArr.clear();
 
     storedCode = mapToBytesArray(&head);
-
     removeRedudantZeros(storedCode);
 }
 
@@ -164,48 +163,42 @@ Fano::~Fano() {
     storedCode.clear();
 }
 
+void writeByte(std::ostream &out, char byte, char &usedByte, int &inBytePos){
+    int inNumPos = 7;
+    while (inNumPos >= 0) {
+        while (inBytePos >= 0 && inNumPos >= 0) {
+            char bit = (byte & (1 << inNumPos)); // взяли бит
+            int seek = inBytePos - inNumPos; //смотрим куда двигать бит, чтобы занести в tempByte
+            if (seek < 0) {
+                usedByte |= bit >> -seek;
+            } else {
+                usedByte |= bit << seek;
+            }
+            inBytePos--;
+            inNumPos--;
+        }
+        if (inBytePos < 0) {
+            out.write(&usedByte, 1);
+            usedByte = 0;
+            inBytePos = 7;
+        }
+    }
+}
+
 void Fano::writeKeys(std::ostream &out) {
-    char efficiency = 1;
-    out.write(&efficiency, 1);
     char size = storedCode.size();
     out.write(&size, 1);
-
-    // Данные записываются: [символ][кол-во байт которые надо считать] ||[количество нулей в начале][BIN значения]||
-    // Если значение начинается с 0, то количество нулей до первой единицы записывается во вторые []
-    //
-    // Знаком || помечаются границы послежовательности для записи двоичного представления
-    //
-    // '0100', BIN представление 4 = '100', но из этого не построится дерево.
-    // То есть запишется: [символ] ||[01][04] ||
-    //
-    // Если значение начинается с 1, то ничего не требуется.
-    // То есть запишется: [символ] ||[00][значение]||
 
     Log::d("Write key loop");
 
     int inBytePos = 7; //позиция внутри tempByte (будем идти со старшего бита к младшему)
     char tempByte = 0; //байт для записи
     for (auto &p : storedCode){
-        //пишем длинну битов как 1 байтовое число
-        int inNumPos = 7;
-        while (inNumPos >= 0) {
-            while (inBytePos >= 0 && inNumPos >= 0) {
-                char bit = (p.first & (1 << inNumPos)); // взяли бит
-                int seek = inBytePos - inNumPos; //смотрим куда двигать бит, чтобы занести в tempByte
-                if (seek < 0) {
-                    tempByte |= bit >> -seek;
-                } else {
-                    tempByte |= bit << seek;
-                }
-                inBytePos--;
-                inNumPos--;
-            }
-            if (inBytePos < 0) {
-                out.write(&tempByte, 1);
-                tempByte = 0;
-                inBytePos = 7;
-            }
-        }
+        //пишем байт чанка
+        writeByte(out, p.first, tempByte, inBytePos);
+
+        //пишем длинну битов чанка как 1 байтовое число
+        writeByte(out, p.second.size(), tempByte, inBytePos);
 
         //пишем биты
         for (bool b : p.second) {
@@ -217,7 +210,9 @@ void Fano::writeKeys(std::ostream &out) {
             }
             inBytePos--;
         }
-
+    }
+    if (tempByte != 0) { //дозаписываем остаток, который мог не записаться в цикле
+        out.write(&tempByte, 1);
     }
 }
 

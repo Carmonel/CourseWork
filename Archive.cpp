@@ -7,76 +7,84 @@
 
 using namespace std;
 
-vector<bool> readBits(std::ifstream &source){
-    auto bits = vector<bool>();
+void addLeafNode(auto &bits, Node &head, char byte){
+    Node* thisNode = &head;
+    for (int i = 0; i < bits.size(); i++){
+        Node* tempNode = nullptr;
 
-    // Считывание количества байт
-    char bytesCount;
-    source.read(&bytesCount, 1);
+        if (bits[i] == 0){
+            tempNode = thisNode->getLeftNode();
+            if (tempNode == nullptr) {
+                thisNode->setLeftNode(Node(vector<bool>(bits.begin(), bits.begin() + i)));
+                tempNode = thisNode->getLeftNode();
+            }
+            thisNode = tempNode;
 
-    char temp;
-    source.read(&temp, 1);
+        } else {
+            tempNode = thisNode->getRightNode();
+            if (tempNode == nullptr) {
+                thisNode->setRightNode(Node(vector<bool>(bits.begin(), bits.begin() + i)));
+                tempNode = thisNode->getRightNode();
+            }
+            thisNode = tempNode;
 
-    char pos = 7;
-    while (temp >> pos == 0) {
-        pos--;
-    }
-
-    for (unsigned char i = 0; i < (unsigned char)(bytesCount); i++) {
-        char temp;
-        char mask = 1 << pos;
-        source.read(&temp, 1);
-
-        for (; pos >= 0; pos--) {
-            bits.push_back(temp & mask);
-            mask >>= 1;
         }
-        pos = 7;
     }
-
-    return bits;
+    thisNode->setByteAsLeaf(byte);
 }
 
-char readByte(std::ifstream &source){
-    char value;
-    source.read(&value, 1);
-    return value;
+char readByte(std::ifstream &source, int &chPos, char &ch) {
+    int inNumPos = 7; //позиция для байта, куда пишем
+    char readedByte = 0;
+    while (inNumPos >= 0) {
+        while (chPos >= 0 && inNumPos >= 0) {
+            readedByte |= (ch & (1 << chPos)); // взяли бит
+            inNumPos--;
+            chPos--;
+        }
+        if (chPos < 0) {
+            source.read(&ch, 1);
+            chPos = 7;
+        }
+    }
+    return readedByte;
 }
 
 Node readTree(std::ifstream &source){
+    char ch;
+    source.read(&ch, 1);
+    unsigned char chunkCount = ch; //чанк - байт и последовательность битов, соответствующая ему
+
     Node head = Node(vector<bool>());
-    char count;
-    source.read(&count, 1);
 
-    for (; count > 0; count--) {
-        char byte = readByte(source);
-        auto bits = readBits(source);
+    int chPos = 7; //позиция внутри байта чтения
+    size_t readedChunks = 0; //сколько чанков сейчас прочитано
 
-        Node* thisNode = &head;
+    source.read(&ch, 1); //начали читать
 
-        for (int i = 0; i < bits.size(); i++){
-            Node* tempNode = nullptr;
+    while (readedChunks < chunkCount) {
+        //читаем байт эквивалентный тем, что были в несжатом файле
+        char chunkByte = readByte(source, chPos, ch);
 
-            if (bits[i] == 0){
-                tempNode = thisNode->getLeftNode();
-                if (tempNode == nullptr) {
-                    thisNode->setLeftNode(Node(vector<bool>(bits.begin(), bits.begin() + i)));
-                    tempNode = thisNode->getLeftNode();
-                }
-                thisNode = tempNode;
+        //читаем длину битовой последовательности
+        char bitLen = readByte(source, chPos, ch);
 
-            } else {
-                tempNode = thisNode->getRightNode();
-                if (tempNode == nullptr) {
-                    thisNode->setRightNode(Node(vector<bool>(bits.begin(), bits.begin() + i)));
-                    tempNode = thisNode->getRightNode();
-                }
-                thisNode = tempNode;
-
+        auto bits = vector<bool>();
+        bits.push_back(ch & (1 << chPos));
+        while (bits.size() < bitLen) {
+            if (chPos == 0) {
+                source.read(&ch, 1);
+                chPos = 7;
             }
+            bits.push_back(ch & (1 << chPos));
+            chPos--;
         }
-        thisNode->setByteAsLeaf(byte);
+
+        addLeafNode(bits, head, chunkByte);
+
+        readedChunks++;
     }
+
     return head;
 }
 
@@ -135,19 +143,19 @@ void Archive::compress(std::ofstream &output) {
 
     // Считывание потока данных с файла
     // Заполнение storedUsages, подсчет количества использований
-    Fano main(input);
-    Log::v((stringstream() << main).str());
+    Fano fanoCodes(input);
+    Log::v((stringstream() << fanoCodes).str());
 
     Log::v("Generating keys...");
     // Генератор keys
-    main.writeKeys(output);
+    fanoCodes.writeKeys(output);
 
     Log::v("Generating data stream...");
 
     // Создание archive
     input.clear();
     input.seekg(0);
-    main.generateArchived(input, output);
+    fanoCodes.generateArchived(input, output);
     Log::v("File successfully archived!");
 }
 
