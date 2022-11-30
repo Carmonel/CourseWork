@@ -16,9 +16,7 @@ private:
 
 public:
     explicit Node(const std::vector<bool> &bits);
-    Node(const Node &node);
     ~Node();
-    Node& operator=(const Node &node);
 
     const std::vector<bool>& getBits();
 
@@ -27,10 +25,10 @@ public:
     void setByteAsLeaf(unsigned char byte);
     unsigned char getByte() const;
 
-    void setLeftNode(const Node &node);
+    void createLeftNode(const std::vector<bool> &bits);
     Node* getLeftNode();
 
-    void setRightNode(const Node &node);
+    void createRightNode(const std::vector<bool> &bits);
     Node* getRightNode();
 
     friend std::ostream& operator<<(std::ostream &os, Node &node);

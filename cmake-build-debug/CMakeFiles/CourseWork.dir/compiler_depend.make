@@ -164,7 +164,14 @@ CMakeFiles/CourseWork.dir/Archive.cpp.obj: ../Archive.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
   ../Fano.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/sstream \
-  C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/sstream.tcc
+  C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/sstream.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bitset \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stack \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_deque.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_stack.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h
 
 CMakeFiles/CourseWork.dir/ArchiverExecutor.cpp.obj: ../ArchiverExecutor.cpp \
   ../ArchiverExecutor.h \
@@ -1694,6 +1701,16 @@ C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/1
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/sstream.tcc:
 
+C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bitset:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stack:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h:
+
 ../ArchiverExecutor.cpp:
 
 ../utils/ConfigMapper.h:
@@ -1712,19 +1729,9 @@ C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/1
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/array:
 
-C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h:
-
 C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/invoke.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stack:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bitset:
 
 ../main.cpp:
 

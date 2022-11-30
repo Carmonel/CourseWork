@@ -32,44 +32,23 @@ void makeTree(const pair<unsigned char, size_t>* array, size_t arraySize, Node* 
         return;
     }
 
-    // [Основной алгоритм]
-    // Нахождение середины массива так, что, разделив его, сумма элементов из частей массива имеет минимальную разницу.
-    // 1. Создание дополнительного массива для запоминания разности сумм при различных местах разрыва.
-    // 2.1 Цикличный проход по всем элементам от 0 до size-1.
-    // 2.2 Если предыдущая разность была меньше чем нынешняя, то возврат места разрыва на прошлый элемент.
-    //
-    // differenceHolder[] - массив для сохранения результатов подсчета разностей на каждом шаге.
-    // index - значение, показывающее где необходим разрыв.
-    auto* differenceHolder = new size_t[arraySize];
-    size_t index = 0;
+    size_t sumLeft = 0, sumRight = 0, midPos = 0; //Для поиска левой и правой сумм
 
-    // Шаг 2.1
-    for (index = 0; index < arraySize; index++){
-
-        long long leftSum = 0; // Подсчет левой части
-        long long rightSum = 0; // Подсчет правой части
-
-        // Заполнение left и right циклом, что проходит от 0 до size-1
-        // Если мы на элементе левее нынешнего index, то увеличивается leftSum
-        // Если мы на элементе правее нынешнего index, то увеличивается rightSum
-        for (int j = 0; j < arraySize; j++){
-            if (j < index) leftSum = leftSum + array[j].second;
-            else rightSum =  rightSum + array[j].second;
-        }
-        differenceHolder[index] = abs(leftSum - rightSum); // Запоминание разницы
-
-        // Шаг 2.2
-        if ((index != 0) && (differenceHolder[index] > differenceHolder[index - 1])) {
-            index--;
-            break;
-        }
+    for (int i = 0; i < arraySize; i++) {
+        sumRight += array[i].second;
     }
 
-    // Если середина в конце, то справа будет массив без элементов, возврат на элемент назад
-    if (index == arraySize) index--;
+    long double balanceCoefficient = (long double)(array[0].second) / array[arraySize-1].second;
 
-    // Удаление differenceHolder за ненадобностью далее
-    delete[] differenceHolder;
+    while (sumLeft * balanceCoefficient < sumRight) {
+        sumRight -= array[midPos].second;
+        sumLeft += array[midPos].second;
+        midPos++;
+    }
+
+    if (midPos == arraySize) {
+        midPos--;
+    }
 
     // [Рекурсия]
     // Для построения дерева с весами '0' или '1', при прохождении влево добавляется '0', при прохождении направо '1'
@@ -79,20 +58,20 @@ void makeTree(const pair<unsigned char, size_t>* array, size_t arraySize, Node* 
     auto nextBits = vector<bool>(node->getBits());
 
     nextBits.push_back(0);
-    node->setLeftNode(Node(nextBits));
+    node->createLeftNode(nextBits);
 
     nextBits.at(nextBits.size() - 1) = 1;
-    node->setRightNode(Node(nextBits));
+    node->createRightNode(nextBits);
 
-    makeTree(array, index, node->getLeftNode());
-    makeTree(array + index, arraySize - index, node->getRightNode());
+    makeTree(array + midPos, arraySize - midPos, node->getRightNode());
+    makeTree(array, midPos, node->getLeftNode());
 }
 
-vector<pair<unsigned char, size_t>> mapToSortedVector(map<unsigned char, size_t> &map){
+vector<pair<unsigned char, size_t>> mapToSortedVector(size_t *arr, size_t size){
     auto tempArr = vector<pair<unsigned char, size_t>>();
 
-    for (unsigned char i = 0; i < UCHAR_MAX; i++) {
-        tempArr.emplace_back(*map.find(i));
+    for (size_t i = 0; i < size; i++) {
+        tempArr.emplace_back(make_pair(i, arr[i]));
     }
     sort(tempArr.begin(), tempArr.end());
     return tempArr;
@@ -119,44 +98,43 @@ std::vector< std::pair<unsigned char, std::vector<bool>>>
     return mapped;
 }
 
-void removeRedudantZeros(std::vector<std::pair<unsigned char, std::vector<bool>>> &vec){
-    for (auto &p : vec) {
-        auto &bits = p.second;
-        size_t i = 0;
-        for (i = 0; i < bits.size() - 1; ++i) {
-            if (bits[i] == 1) {
-                break;
-            }
-        }
-        if (i > 0) {
-            bits.erase(bits.begin(), bits.begin() + i);
+void removeZeroUsageBytes(vector<pair<unsigned char, size_t>> &vec){
+    for (auto it = vec.begin(); it < vec.end();) {
+        if (it->second == 0) {
+            it = vec.erase(it);
+        } else {
+            ++it;
         }
     }
 }
 
 Fano::Fano(std::istream &input) {
-    map<unsigned char, size_t> bytesFrequency = map<unsigned char, size_t>();
+    size_t bytesFrequency[256] = {0};
 
-    // Ввод символов
-    unsigned char ch;
-    while (input.read(reinterpret_cast<char *>(&ch), 1)){
-        bytesFrequency[ch]++;
+    Log::d("Read bytes frequency");
+
+    char ch;
+    while(input.read(&ch, 1)){
+        bytesFrequency[(unsigned char)(ch)]++;
     }
 
-    Log::d("frequency");
-    for (auto &p : bytesFrequency) {
-        Log::d(to_string(p.first) + "|" + to_string(p.second));
-    }
-
-    auto tempArr = mapToSortedVector(bytesFrequency);
+    Log::d("Map to sorted vector");
+    auto tempArr = mapToSortedVector(bytesFrequency, 256);
+    removeZeroUsageBytes(tempArr);
 
     Node head = Node(vector<bool>());
 
+    /*Log::d("arr size " + to_string(tempArr.size()));
+    auto *array = tempArr.cbegin().base();
+    for (size_t i = 0; i < tempArr.size(); i++) {
+        Log::d(to_string(array[i].first) + "|" + to_string(array[i].second));
+    }*/
+
+    Log::d("Making tree");
     makeTree(tempArr.cbegin().base(), tempArr.size(), &head);
     tempArr.clear();
 
     storedCode = mapToBytesArray(&head);
-    removeRedudantZeros(storedCode);
 }
 
 Fano::~Fano() {
@@ -167,7 +145,7 @@ void writeByte(std::ostream &out, char byte, char &usedByte, int &inBytePos){
     int inNumPos = 7;
     while (inNumPos >= 0) {
         while (inBytePos >= 0 && inNumPos >= 0) {
-            char bit = (byte & (1 << inNumPos)); // взяли бит
+            unsigned char bit = (byte & (1 << inNumPos)); // взяли бит
             int seek = inBytePos - inNumPos; //смотрим куда двигать бит, чтобы занести в tempByte
             if (seek < 0) {
                 usedByte |= bit >> -seek;
@@ -187,9 +165,8 @@ void writeByte(std::ostream &out, char byte, char &usedByte, int &inBytePos){
 
 void Fano::writeKeys(std::ostream &out) {
     char size = storedCode.size();
+    Log::d("stored codes size " + to_string(storedCode.size()));
     out.write(&size, 1);
-
-    Log::d("Write key loop");
 
     int inBytePos = 7; //позиция внутри tempByte (будем идти со старшего бита к младшему)
     char tempByte = 0; //байт для записи
@@ -207,8 +184,9 @@ void Fano::writeKeys(std::ostream &out) {
                 out.write(&tempByte, 1);
                 tempByte = 0;
                 inBytePos = 7;
+            } else {
+                inBytePos--;
             }
-            inBytePos--;
         }
     }
     if (tempByte != 0) { //дозаписываем остаток, который мог не записаться в цикле
@@ -226,19 +204,35 @@ void Fano::generateArchived(std::istream &input, std::ostream &out) {
     int inBytePos = 7; //позиция внутри tempByte (будем идти со старшего бита к младшему)
     char tempByte = 0; //байт для записи
 
+    Log::d("body");
+
+    auto chars = vector<char>(1000000);
+
     while(input.read(&ch, 1)){
         auto &bits = codes[ch];
+        chars.push_back(ch);
+        //Log::d("---byte " + to_string((unsigned char ) ch));
         //пишем биты
+        int pos = 0;
         for (bool b : bits) {
             tempByte |= (b << inBytePos);
             if (inBytePos == 0) {
+                //Log::d((stringstream() << bitset<8>(tempByte)).str() + " from " + to_string(pos));
                 out.write(&tempByte, 1);
                 tempByte = 0;
                 inBytePos = 7;
+            } else {
+                inBytePos--;
             }
-            inBytePos--;
+            pos++;
         }
-        tempByte = inBytePos;
-        out.write(&tempByte, 1);//последний байт всегда показывает длину "хвоста предпоследнего байта"
     }
+
+    if (inBytePos != 7) {
+        out.write(&tempByte, 1); //записали хвост
+        Log::d("tail " + (stringstream() << bitset<8>(tempByte)).str() + " from " + to_string((unsigned char)tempByte));
+    }
+    tempByte = inBytePos;
+    Log::d("tail size " + (stringstream() << bitset<8>(tempByte)).str() + " from " + to_string((unsigned char)tempByte));
+    out.write(&tempByte, 1);//последний байт всегда показывает длину "хвоста предпоследнего байта"
 }

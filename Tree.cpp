@@ -6,7 +6,7 @@ using namespace std;
 Node::Node(const vector<bool> &bits) {
     leaf = false;
     byte = 0;
-    this->bits = bits;
+    this->bits = vector<bool>(bits);
     left = nullptr;
     right = nullptr;
 }
@@ -15,16 +15,16 @@ Node::~Node() {
     //TODO
 }
 
-void Node::setLeftNode(const Node &node) {
-    left = new Node(node);
+void Node::createLeftNode(const vector<bool> &bits) {
+    left = new Node(bits);
 }
 
 Node *Node::getLeftNode() {
     return left;
 }
 
-void Node::setRightNode(const Node &node) {
-    right = new Node(node);
+void Node::createRightNode(const vector<bool> &bits) {
+    right = new Node(bits);
 }
 
 Node *Node::getRightNode() {
@@ -68,38 +68,4 @@ std::ostream &returnOutStream(ostream &os, Node *node, int depth) {
     child = node -> right;
     if (child != nullptr) returnOutStream(os, child, depth+1);
     return os;
-}
-
-Node &Node::operator=(const Node &node) {
-    if (this == &node) {
-        return *this;
-    }
-
-    leaf = node.leaf;
-    byte = node.byte;
-    bits = node.bits;
-
-    if (node.left != nullptr) {
-        left = new Node(*node.left);
-    }
-
-    if (node.right != nullptr) {
-        right = new Node(*node.right);
-    }
-
-    return *this;
-}
-
-Node::Node(const Node &node) {
-    leaf = node.leaf;
-    byte = node.byte;
-    bits = node.bits;
-
-    if (node.left != nullptr) {
-        left = new Node(*node.left);
-    }
-
-    if (node.right != nullptr) {
-        right = new Node(*node.right);
-    }
 }
