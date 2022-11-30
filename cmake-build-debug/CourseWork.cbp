@@ -100,10 +100,28 @@
 		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Fano.h">
 			<Option target="CourseWork"/>
 		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Tree.cpp">
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/archiver/BodyBinary.cpp">
 			<Option target="CourseWork"/>
 		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Tree.h">
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/archiver/BodyBinary.h">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/archiver/FanoCodesBinary.cpp">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/archiver/FanoCodesBinary.h">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/archiver/Tree.cpp">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/archiver/Tree.h">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/binary/BinaryIO.cpp">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/binary/BinaryIO.h">
 			<Option target="CourseWork"/>
 		</Unit>
 		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/main.cpp">

@@ -1,5 +1,5 @@
 #include "Tree.h"
-#include "utils/Log.h"
+#include "../utils/Log.h"
 
 using namespace std;
 

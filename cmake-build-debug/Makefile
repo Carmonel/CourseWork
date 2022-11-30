@@ -200,29 +200,101 @@ Fano.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Fano.cpp.s
 .PHONY : Fano.cpp.s
 
-Tree.obj: Tree.cpp.obj
-.PHONY : Tree.obj
+archiver/BodyBinary.obj: archiver/BodyBinary.cpp.obj
+.PHONY : archiver/BodyBinary.obj
 
 # target to build an object file
-Tree.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Tree.cpp.obj
-.PHONY : Tree.cpp.obj
+archiver/BodyBinary.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.obj
+.PHONY : archiver/BodyBinary.cpp.obj
 
-Tree.i: Tree.cpp.i
-.PHONY : Tree.i
+archiver/BodyBinary.i: archiver/BodyBinary.cpp.i
+.PHONY : archiver/BodyBinary.i
 
 # target to preprocess a source file
-Tree.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Tree.cpp.i
-.PHONY : Tree.cpp.i
+archiver/BodyBinary.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.i
+.PHONY : archiver/BodyBinary.cpp.i
 
-Tree.s: Tree.cpp.s
-.PHONY : Tree.s
+archiver/BodyBinary.s: archiver/BodyBinary.cpp.s
+.PHONY : archiver/BodyBinary.s
 
 # target to generate assembly for a file
-Tree.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/Tree.cpp.s
-.PHONY : Tree.cpp.s
+archiver/BodyBinary.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.s
+.PHONY : archiver/BodyBinary.cpp.s
+
+archiver/FanoCodesBinary.obj: archiver/FanoCodesBinary.cpp.obj
+.PHONY : archiver/FanoCodesBinary.obj
+
+# target to build an object file
+archiver/FanoCodesBinary.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.obj
+.PHONY : archiver/FanoCodesBinary.cpp.obj
+
+archiver/FanoCodesBinary.i: archiver/FanoCodesBinary.cpp.i
+.PHONY : archiver/FanoCodesBinary.i
+
+# target to preprocess a source file
+archiver/FanoCodesBinary.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.i
+.PHONY : archiver/FanoCodesBinary.cpp.i
+
+archiver/FanoCodesBinary.s: archiver/FanoCodesBinary.cpp.s
+.PHONY : archiver/FanoCodesBinary.s
+
+# target to generate assembly for a file
+archiver/FanoCodesBinary.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.s
+.PHONY : archiver/FanoCodesBinary.cpp.s
+
+archiver/Tree.obj: archiver/Tree.cpp.obj
+.PHONY : archiver/Tree.obj
+
+# target to build an object file
+archiver/Tree.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/archiver/Tree.cpp.obj
+.PHONY : archiver/Tree.cpp.obj
+
+archiver/Tree.i: archiver/Tree.cpp.i
+.PHONY : archiver/Tree.i
+
+# target to preprocess a source file
+archiver/Tree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/archiver/Tree.cpp.i
+.PHONY : archiver/Tree.cpp.i
+
+archiver/Tree.s: archiver/Tree.cpp.s
+.PHONY : archiver/Tree.s
+
+# target to generate assembly for a file
+archiver/Tree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/archiver/Tree.cpp.s
+.PHONY : archiver/Tree.cpp.s
+
+binary/BinaryIO.obj: binary/BinaryIO.cpp.obj
+.PHONY : binary/BinaryIO.obj
+
+# target to build an object file
+binary/BinaryIO.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.obj
+.PHONY : binary/BinaryIO.cpp.obj
+
+binary/BinaryIO.i: binary/BinaryIO.cpp.i
+.PHONY : binary/BinaryIO.i
+
+# target to preprocess a source file
+binary/BinaryIO.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.i
+.PHONY : binary/BinaryIO.cpp.i
+
+binary/BinaryIO.s: binary/BinaryIO.cpp.s
+.PHONY : binary/BinaryIO.s
+
+# target to generate assembly for a file
+binary/BinaryIO.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CourseWork.dir\build.make CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.s
+.PHONY : binary/BinaryIO.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -362,9 +434,18 @@ help:
 	@echo ... Fano.obj
 	@echo ... Fano.i
 	@echo ... Fano.s
-	@echo ... Tree.obj
-	@echo ... Tree.i
-	@echo ... Tree.s
+	@echo ... archiver/BodyBinary.obj
+	@echo ... archiver/BodyBinary.i
+	@echo ... archiver/BodyBinary.s
+	@echo ... archiver/FanoCodesBinary.obj
+	@echo ... archiver/FanoCodesBinary.i
+	@echo ... archiver/FanoCodesBinary.s
+	@echo ... archiver/Tree.obj
+	@echo ... archiver/Tree.i
+	@echo ... archiver/Tree.s
+	@echo ... binary/BinaryIO.obj
+	@echo ... binary/BinaryIO.i
+	@echo ... binary/BinaryIO.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

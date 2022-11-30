@@ -110,19 +110,19 @@ CMakeFiles/CourseWork.dir/Fano.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CourseWork.dir/Fano.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\NHTHS\Desktop\CourseWork\Fano.cpp -o CMakeFiles\CourseWork.dir\Fano.cpp.s
 
-CMakeFiles/CourseWork.dir/Tree.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
-CMakeFiles/CourseWork.dir/Tree.cpp.obj: ../Tree.cpp
-CMakeFiles/CourseWork.dir/Tree.cpp.obj: CMakeFiles/CourseWork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CourseWork.dir/Tree.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CourseWork.dir/Tree.cpp.obj -MF CMakeFiles\CourseWork.dir\Tree.cpp.obj.d -o CMakeFiles\CourseWork.dir\Tree.cpp.obj -c C:\Users\NHTHS\Desktop\CourseWork\Tree.cpp
+CMakeFiles/CourseWork.dir/archiver/Tree.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
+CMakeFiles/CourseWork.dir/archiver/Tree.cpp.obj: ../archiver/Tree.cpp
+CMakeFiles/CourseWork.dir/archiver/Tree.cpp.obj: CMakeFiles/CourseWork.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CourseWork.dir/archiver/Tree.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CourseWork.dir/archiver/Tree.cpp.obj -MF CMakeFiles\CourseWork.dir\archiver\Tree.cpp.obj.d -o CMakeFiles\CourseWork.dir\archiver\Tree.cpp.obj -c C:\Users\NHTHS\Desktop\CourseWork\archiver\Tree.cpp
 
-CMakeFiles/CourseWork.dir/Tree.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CourseWork.dir/Tree.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\NHTHS\Desktop\CourseWork\Tree.cpp > CMakeFiles\CourseWork.dir\Tree.cpp.i
+CMakeFiles/CourseWork.dir/archiver/Tree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CourseWork.dir/archiver/Tree.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\NHTHS\Desktop\CourseWork\archiver\Tree.cpp > CMakeFiles\CourseWork.dir\archiver\Tree.cpp.i
 
-CMakeFiles/CourseWork.dir/Tree.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CourseWork.dir/Tree.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\NHTHS\Desktop\CourseWork\Tree.cpp -o CMakeFiles\CourseWork.dir\Tree.cpp.s
+CMakeFiles/CourseWork.dir/archiver/Tree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CourseWork.dir/archiver/Tree.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\NHTHS\Desktop\CourseWork\archiver\Tree.cpp -o CMakeFiles\CourseWork.dir\archiver\Tree.cpp.s
 
 CMakeFiles/CourseWork.dir/utils/Exception.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
 CMakeFiles/CourseWork.dir/utils/Exception.cpp.obj: ../utils/Exception.cpp
@@ -194,17 +194,62 @@ CMakeFiles/CourseWork.dir/utils/Utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CourseWork.dir/utils/Utils.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\NHTHS\Desktop\CourseWork\utils\Utils.cpp -o CMakeFiles\CourseWork.dir\utils\Utils.cpp.s
 
+CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
+CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.obj: ../archiver/BodyBinary.cpp
+CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.obj: CMakeFiles/CourseWork.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.obj -MF CMakeFiles\CourseWork.dir\archiver\BodyBinary.cpp.obj.d -o CMakeFiles\CourseWork.dir\archiver\BodyBinary.cpp.obj -c C:\Users\NHTHS\Desktop\CourseWork\archiver\BodyBinary.cpp
+
+CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\NHTHS\Desktop\CourseWork\archiver\BodyBinary.cpp > CMakeFiles\CourseWork.dir\archiver\BodyBinary.cpp.i
+
+CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\NHTHS\Desktop\CourseWork\archiver\BodyBinary.cpp -o CMakeFiles\CourseWork.dir\archiver\BodyBinary.cpp.s
+
+CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
+CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.obj: ../archiver/FanoCodesBinary.cpp
+CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.obj: CMakeFiles/CourseWork.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.obj -MF CMakeFiles\CourseWork.dir\archiver\FanoCodesBinary.cpp.obj.d -o CMakeFiles\CourseWork.dir\archiver\FanoCodesBinary.cpp.obj -c C:\Users\NHTHS\Desktop\CourseWork\archiver\FanoCodesBinary.cpp
+
+CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\NHTHS\Desktop\CourseWork\archiver\FanoCodesBinary.cpp > CMakeFiles\CourseWork.dir\archiver\FanoCodesBinary.cpp.i
+
+CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\NHTHS\Desktop\CourseWork\archiver\FanoCodesBinary.cpp -o CMakeFiles\CourseWork.dir\archiver\FanoCodesBinary.cpp.s
+
+CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.obj: CMakeFiles/CourseWork.dir/flags.make
+CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.obj: ../binary/BinaryIO.cpp
+CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.obj: CMakeFiles/CourseWork.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.obj -MF CMakeFiles\CourseWork.dir\binary\BinaryIO.cpp.obj.d -o CMakeFiles\CourseWork.dir\binary\BinaryIO.cpp.obj -c C:\Users\NHTHS\Desktop\CourseWork\binary\BinaryIO.cpp
+
+CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\NHTHS\Desktop\CourseWork\binary\BinaryIO.cpp > CMakeFiles\CourseWork.dir\binary\BinaryIO.cpp.i
+
+CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\NHTHS\Desktop\CourseWork\binary\BinaryIO.cpp -o CMakeFiles\CourseWork.dir\binary\BinaryIO.cpp.s
+
 # Object files for target CourseWork
 CourseWork_OBJECTS = \
 "CMakeFiles/CourseWork.dir/main.cpp.obj" \
 "CMakeFiles/CourseWork.dir/ArchiverExecutor.cpp.obj" \
 "CMakeFiles/CourseWork.dir/Fano.cpp.obj" \
-"CMakeFiles/CourseWork.dir/Tree.cpp.obj" \
+"CMakeFiles/CourseWork.dir/archiver/Tree.cpp.obj" \
 "CMakeFiles/CourseWork.dir/utils/Exception.cpp.obj" \
 "CMakeFiles/CourseWork.dir/utils/ConfigMapper.cpp.obj" \
 "CMakeFiles/CourseWork.dir/Archive.cpp.obj" \
 "CMakeFiles/CourseWork.dir/utils/Log.cpp.obj" \
-"CMakeFiles/CourseWork.dir/utils/Utils.cpp.obj"
+"CMakeFiles/CourseWork.dir/utils/Utils.cpp.obj" \
+"CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.obj" \
+"CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.obj" \
+"CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.obj"
 
 # External object files for target CourseWork
 CourseWork_EXTERNAL_OBJECTS =
@@ -212,17 +257,20 @@ CourseWork_EXTERNAL_OBJECTS =
 CourseWork.exe: CMakeFiles/CourseWork.dir/main.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/ArchiverExecutor.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/Fano.cpp.obj
-CourseWork.exe: CMakeFiles/CourseWork.dir/Tree.cpp.obj
+CourseWork.exe: CMakeFiles/CourseWork.dir/archiver/Tree.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/utils/Exception.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/utils/ConfigMapper.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/Archive.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/utils/Log.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/utils/Utils.cpp.obj
+CourseWork.exe: CMakeFiles/CourseWork.dir/archiver/BodyBinary.cpp.obj
+CourseWork.exe: CMakeFiles/CourseWork.dir/archiver/FanoCodesBinary.cpp.obj
+CourseWork.exe: CMakeFiles/CourseWork.dir/binary/BinaryIO.cpp.obj
 CourseWork.exe: CMakeFiles/CourseWork.dir/build.make
 CourseWork.exe: CMakeFiles/CourseWork.dir/linklibs.rsp
 CourseWork.exe: CMakeFiles/CourseWork.dir/objects1.rsp
 CourseWork.exe: CMakeFiles/CourseWork.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable CourseWork.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\NHTHS\Desktop\CourseWork\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable CourseWork.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\CourseWork.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
