@@ -1,12 +1,10 @@
-//
-// Created by NHTHS on 25.11.22.
-//
-
 #include "ConfigMapper.h"
-#include "SyntaxChecker.h"
+#include "Exception.h"
 
 Config ConfigMapper::readConfig(int argc, char **argv) {
-    SyntaxChecker::checkArgsCount(argc);
+    if ((argc != 3) && (argc != 4)){
+        throw ArgCountException("Arguments count must be 2 or 3");
+    }
 
     Config config;
 

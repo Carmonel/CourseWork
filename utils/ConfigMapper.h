@@ -1,11 +1,5 @@
-//
-// Created by NHTHS on 25.11.22.
-//
-
-#ifndef COURSEWORK_CONFIG_H
-#define COURSEWORK_CONFIG_H
-
-#include <string>
+#ifndef COURSEWORK_CONFIGMAPPER_H
+#define COURSEWORK_CONFIGMAPPER_H
 
 #include "Log.h"
 
@@ -24,7 +18,13 @@ struct Config {
         path = "";
     }
     inline Config(Mode &mode, LogLevel logLevel, std::string &path)
-        : mode(mode), logLevel(logLevel), path(path){}
+            : mode(mode), logLevel(logLevel), path(path){}
 };
 
-#endif //COURSEWORK_CONFIG_H
+class ConfigMapper {
+public:
+    static Config readConfig(int argc, char *argv[]);
+};
+
+
+#endif //COURSEWORK_CONFIGMAPPER_H

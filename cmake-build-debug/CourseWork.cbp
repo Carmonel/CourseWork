@@ -88,25 +88,10 @@
 		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Archive.h">
 			<Option target="CourseWork"/>
 		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/ArciverExecutor.cpp">
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/ArchiverExecutor.cpp">
 			<Option target="CourseWork"/>
 		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/ArciverExecutor.h">
-			<Option target="CourseWork"/>
-		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Config.h">
-			<Option target="CourseWork"/>
-		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/ConfigMapper.cpp">
-			<Option target="CourseWork"/>
-		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/ConfigMapper.h">
-			<Option target="CourseWork"/>
-		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Exception.cpp">
-			<Option target="CourseWork"/>
-		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Exception.h">
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/ArchiverExecutor.h">
 			<Option target="CourseWork"/>
 		</Unit>
 		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Fano.cpp">
@@ -115,31 +100,55 @@
 		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Fano.h">
 			<Option target="CourseWork"/>
 		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Log.cpp">
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/archiver/BodyBinary.cpp">
 			<Option target="CourseWork"/>
 		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Log.h">
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/archiver/BodyBinary.h">
 			<Option target="CourseWork"/>
 		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/SyntaxChecker.cpp">
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/archiver/FanoCodesBinary.cpp">
 			<Option target="CourseWork"/>
 		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/SyntaxChecker.h">
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/archiver/FanoCodesBinary.h">
 			<Option target="CourseWork"/>
 		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Utils.cpp">
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/archiver/Tree.cpp">
 			<Option target="CourseWork"/>
 		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/Utils.h">
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/archiver/Tree.h">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/binary/BinaryIO.cpp">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/binary/BinaryIO.h">
 			<Option target="CourseWork"/>
 		</Unit>
 		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/main.cpp">
 			<Option target="CourseWork"/>
 		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/tree.cpp">
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/utils/ConfigMapper.cpp">
 			<Option target="CourseWork"/>
 		</Unit>
-		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/tree.h">
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/utils/ConfigMapper.h">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/utils/Exception.cpp">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/utils/Exception.h">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/utils/Log.cpp">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/utils/Log.h">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/utils/Utils.cpp">
+			<Option target="CourseWork"/>
+		</Unit>
+		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/utils/Utils.h">
 			<Option target="CourseWork"/>
 		</Unit>
 		<Unit filename="C:/Users/NHTHS/Desktop/CourseWork/CMakeLists.txt">
