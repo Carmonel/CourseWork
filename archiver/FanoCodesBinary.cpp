@@ -159,15 +159,14 @@ void FanoCodesBinary::writeToFile(std::ofstream &out, vector<pair<unsigned char,
 void addLeafNode(auto &bits, Node &head, char byte){
     Node* thisNode = &head;
     for (size_t i = 0; i < bits.size(); i++){
-
         if (bits.at(i) == 0){
             if (thisNode->getLeftNode() == nullptr) {
-                thisNode->createLeftNode(vector<bool>(bits.begin(), bits.begin() + i));
+                thisNode->createLeftNode(vector<bool>(bits.begin(), bits.begin() + i + 1));
             }
             thisNode = thisNode->getLeftNode();
         } else {
             if (thisNode->getRightNode() == nullptr) {
-                thisNode->createRightNode(vector<bool>(bits.begin(), bits.begin() + i));
+                thisNode->createRightNode(vector<bool>(bits.begin(), bits.begin() + i + 1));
             }
             thisNode = thisNode->getRightNode();
 
@@ -202,14 +201,12 @@ Node FanoCodesBinary::readFromFile(ifstream &source) {
         auto bits = vector<bool>();
 
         while (bits.size() < bitsLen) {
-            if (chPos == 0) {
-                bits.push_back(ch & (1 << chPos));
+            if (chPos == -1) {
                 source.read(&ch, 1);
                 chPos = 7;
-            } else {
-                bits.push_back(ch & (1 << chPos));
-                chPos--;
             }
+            bits.push_back(ch & (1 << chPos));
+            chPos--;
         }
 
         addLeafNode(bits, head, chunkByte);
