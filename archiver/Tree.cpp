@@ -49,18 +49,16 @@ unsigned char Node::getByte() const {
 }
 
 ostream& operator<<(ostream &os, vector<bool>& vec){
-    for (_Bit_reference b : vec) {
+    for (bool b : vec) {
         os << b;
     }
     return os;
 }
 
 std::ostream &returnOutStream(ostream &os, Node *node, int depth) {
-    for (int i = 0; i < depth; i++){
-        os << "      ";
+    if (node->isLeaf()) {
+        os << (unsigned int)(node->byte) << "|(" << node->bits.size() << ") " << node->bits << endl;
     }
-
-    os << node->byte << "|" << node->bits << endl;
 
     Node* child = node->left;
     if (child != nullptr) returnOutStream(os, child, depth+1);
