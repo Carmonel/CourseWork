@@ -126,9 +126,9 @@ std::vector< std::pair<unsigned char, std::vector<bool>>>
 }
 
 void FanoCodesBinary::writeToFile(std::ofstream &out, vector<pair<unsigned char, vector<bool>>> &codes) {
-    char size = codes.size();
+    unsigned short size = codes.size();
     Log::d("stored codes size " + to_string(codes.size()));
-    out.write(&size, 1);
+    out.write(reinterpret_cast<const char *>(&size), 2);
 
     int inBytePos = 7; //позиция внутри tempByte (будем идти со старшего бита к младшему)
     char tempByte = 0; //байт для записи
@@ -176,13 +176,11 @@ void addLeafNode(auto &bits, Node &head, char byte){
 }
 
 Node FanoCodesBinary::readFromFile(ifstream &source) {
-    char ch;
-    source.read(&ch, 1);
+    char ch = 0;
+    unsigned short chunkCount = 0;
     //чанк - байт и последовательность битов, соответствующая ему
-    size_t chunkCount = ch;
-    if (ch == 0){
-        chunkCount = 256;//костыль для количества чанков 256 (max char = 255)
-    }
+    source.read(reinterpret_cast<char *>(&chunkCount), 2);
+    Log::d("Tree chunks " + to_string(chunkCount));
 
     Node head = Node(vector<bool>());
 
