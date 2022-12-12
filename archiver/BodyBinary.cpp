@@ -34,8 +34,10 @@ void BodyBinary::writeCompressedToFile(std::ifstream &source, std::ostream &dest
 
     if (inBytePos != 7) {
         dest.write(&tempByte, 1); //записали хвост
+        tempByte = inBytePos;
+    } else {
+        tempByte = -1;
     }
-    tempByte = inBytePos;
     dest.write(&tempByte, 1);//последний байт всегда показывает длину "хвоста предпоследнего байта"
 }
 
